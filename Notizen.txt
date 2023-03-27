@@ -49,3 +49,81 @@ Bitte: Fragen, Fragen, Fragen , ...
 
 
 // =====================================================================
+
+-- Klasse, Objekt:
+
+Was ist eine Klasse:
+
+   Ansammlung von Daten und Methoden (Funktionen), die zusammen gehören.
+
+Klasse versus Objekt:
+
+Klasse: Beschreibung / Definition / Festlegung
+
+Objekt: Synonym: Instanz
+
+    Ein Objekt ist ein realer Satz dieser Daten und Methoden.
+
+C++:  Vor 40 Jahren konzipiert.
+
+Umsetzung in C++: 2 Dateien
+
+Beispiel:  Uhrzeit:   Stunden, Minuten, Sekunden  // Time 
+
+class Uhrzeit
+
+class Time     <===
+
+Einrücken:  Jaaaaaa, für die bessere Lesbarkeit
+
+            Aber: KEIN Einfluss auf Syntax (siehe Python)
+
+// ---------------------------------------
+
+Frage:  Eine Funktion mit 2 / mehreren Ergebnissen:
+
+A) Man liefert als Rückgabetyp ein Array / eine Struktur / ein Objekt zurück
+
+B) Über die Parameter: Diese müssen dann vom Typ Zeiger / Referenz sein.
+
+
+// ---------------------------------------
+
+
+Klasse:
+
+Header-File: Schnittstelle  ( .h )
+
+Implementierungs-Datei: Realisierung    ( .cpp )
+
+// ---------------------------------------
+
+Wie erstelle ich ein ausführbares Programm?
+
+In 2 Schritten:
+
+a) Syntax  // rechte Maustaste // "Compile" // geht schneller
+
+b) Maschinencode  //  "Build" // ist langsamer
+
+// ---------------------------------------
+
+Nomenklatur:
+------------
+
+Time:         Ist eine KLASSE (Beschreibung)
+
+now, pause:   OBJEKTE / INSTANZEN
+
+( Funktion: Entspricht der C-Programmierung / prozedurale Programmierung )
+
+now.print:    METHODE: Wird an einem OBJEKT aufgerufen
+
+now.hour:     INSTANZVARIABLE (Objektvariable: sagt man nicht), MEMBER VARIABLE
+
+              Variablen eines Objekts
+
+
+
+
+
