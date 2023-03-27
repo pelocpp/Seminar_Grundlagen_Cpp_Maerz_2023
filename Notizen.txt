@@ -367,4 +367,41 @@ die Implementierungs-Datei wird in einer Bibliothek abgelegt werden (.lib).
 
 
 
+// =====================================================================
+
+
+Übung:
+
+== Empty Project
+
+== 3 Dateien umkopieren (Time.h, Time.cpp, Program.cpp)
+
+== Programm zum Laufen bekommen
+
+== add2 Methode:
+
+Time Time::add2(const Time& time) const
+{
+    int hour = m_hour + time.getHour();
+    int minute = m_minute + time.m_minute;
+    int second = m_second + time.m_second;
+
+    return Time (hour, minute, second);   // geeigneten Konstruktor
+}
+
+>>>>>>>>>> Überlauf richtig machen:  12:30:0 plus 1 Stunden 40 Minuten ==> 14:10:00
+
+== void increment ();
+
+Erhöht eine Uhrzeit um 1 Sekunde:    12.59.59 ==> 13:00:00
+
+== Differenz zweier Uhrzeit 
+
+   a) Ergebnis ist vom Typ Time
+
+   b) Ergebnis ist vom Typ int == entspricht der Differenz in Sekunden
+
+Tipp: Könnte eine private Hilfsmethode helfen:
+
+   int toSeconds();
 

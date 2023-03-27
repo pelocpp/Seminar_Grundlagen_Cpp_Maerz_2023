@@ -30,6 +30,8 @@ public:
     // methods
     void print();
 
+    void increment ();
+
     // 1. Variante
     void add(const Time& time);                 // mutable
 
