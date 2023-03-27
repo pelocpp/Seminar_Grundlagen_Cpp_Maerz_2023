@@ -9,21 +9,26 @@ int main()
 
     Time now;
 
-    now.hour = 10;
-    now.minute = 26;
-    now.second = 0;
+    //now.m_hour = 11;
+    
+    now.setHour(1000);
+    
+    //now.m_minute = 0;
+    //now.m_second = 0;
 
     now.print();
 
     Time pause;
 
-    pause.hour = 10;
-    pause.minute = 40;
-    pause.second = 30;
+    //pause.m_hour = 10;
+    //pause.m_minute = 40;
+    //pause.m_second = 30;
 
     pause.print();
 
-    printf("Stunden von now: %d\n", now.hour);
+    printf("Stunden von now: %d\n", now.getHour());
+
+    Time mittags_pause (12, 0, 0);
 
     return 0;
 }

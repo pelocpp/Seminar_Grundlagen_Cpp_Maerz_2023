@@ -47,6 +47,9 @@ Bitte: Fragen, Fragen, Fragen , ...
 
 Übungen ...  Nachmittags ...
 
+// =====================================================================
+
+Mittagspause: 12 bis 13 Uhr
 
 // =====================================================================
 
@@ -123,7 +126,77 @@ now.hour:     INSTANZVARIABLE (Objektvariable: sagt man nicht), MEMBER VARIABLE
 
               Variablen eines Objekts
 
+// ---------------------------------------
+
+Ein Objekt ist bei seiner Erzeugung mit (vernünftigen) Daten zu erzeugen.
+
+Konstruktor:
+
+Verknüpfung der Erzeugung eines Objekts mit dem Aufruf einer spez. Methode: Vorbelegungsdaten.
+
+Diese Methoden nennt man Konstruktoren: Sie "konstruieren" das Objekt 
+
+Syntax:  2 Besonderheiten:
+
+i) Name == Namen der Klasse 
+ii) KEIN Rückgabetyp (auch nicht void)
 
 
+Paradigma der OO:
 
+Ein Objekt hat zu jedem Zeitpunkt seines Lebens
+  "sinnvolle" Werte zu enthalten -
+  auch bei seiner Erzeugung: Konstruktoren.
+
+// ---------------------------------------
+
+Ästhetik von Quellcode:
+
+Parameter wir h, m, x, y, a, b: Das ist schwer lesbar .. 
+
+   und sollte vermieden werden.
+
+a) Doppeldeutigkeiten können mit this aufgelöst werden.
+
+// Java Stil
+
+Time::Time(int hour, int m, int s)
+{
+    this -> hour = hour;
+    ...
+}
+
+
+b) Anderer Ansatz:
+
+// C++ Stil:   Instanzvariablen : Member  ===> m_ als Präfix verwendet wird
+
+// ---------------------------------------
+
+Zugriff auf Objekte // Access Rights // Zugriffsrechte
+
+A) Ein Zugriff von "Außen" wird mit "private" verboten
+
+B) Möchte ich auf eine Instanzvariable dennoch zugreifen:
+
+   Spez. Methoden: "getter / setter" - Methoden
+
+
+C)
+
+public:     Von überall aus zugänglich
+private:     Nur innerhalb der Klasse (Methoden der Klasse) zugänglich
+protected:  In Kindklassen (Vererbung)
+
+// =======================================================
+
+Falsche Parameter:  try-catch ist in den meisten Fällen zu "hart"
+
+
+A)  Logging // Traces: 
+
+
+B) Programm weiterlaufen lassen:  
+
+    Silent Error Recovery: Falscher Wert wird ignoriert + Log-File Meldung.
 
