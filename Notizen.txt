@@ -315,3 +315,4 @@ Das Stack hat eine Besonderheit:
 Zugriff ist nur an der obersten Stelle / an einem Ende möglich.
 
 // =======================================================
+// =======================================================
