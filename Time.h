@@ -18,11 +18,22 @@ public:
 public:
     // getter/setter
     int getHour();
+    int getMinute();
+    int getSecond();
+
     void setHour(int hour);
+    void setMinute(int minute);
+    void setSecond(int second);
 
 public:
     // methods
     void print();
+
+    // 1. Variante
+    // void add(Time time);
+
+    // 2. Variante
+    Time add(Time time);
 
     // Time tomorrow();
 };

@@ -200,3 +200,32 @@ B) Programm weiterlaufen lassen:
 
     Silent Error Recovery: Falscher Wert wird ignoriert + Log-File Meldung.
 
+
+// =======================================================
+
+Konzeption einer Methode // Überlegungen zur Objekt-Orientierung
+
+
+Time now (13, 0, 0);
+
+In 4 Stunden ist heute das Ziel erreicht.
+
+Time abstand (4, 0, 0);
+
+now . add ( abstand );
+
+13 Uhr plus 4 Stunden = 17 Uhr.
+
+
+    // 1. Variante
+    // void add(Time time);
+
+    // 2. Variante
+    Time add(Time time);
+
+A) Das Ergebnis wird IM Objekt abgelegt: Dies entspricht einem rein OO Charakter
+
+B) Das Ergebnis wird als separates Objekt zurückgeliefert: 
+
+      Tut man, wenn man das aktuelle Objekt nicht verändern möchte.
+

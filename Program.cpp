@@ -7,19 +7,36 @@ int main()
 {
     printf("Hallo Seminar\n");
 
+    Time now (13, 0, 0);
+
+    Time abstand(4, 0, 0);
+
+    // Variante 1
+    // now.add(abstand);
+
+    // Variante 2
+    Time end;
+    end = now.add(abstand);
+
+    return 0;
+}
+
+
+int main_01()
+{
+    printf("Hallo Seminar\n");
+
     Time now;
 
     //now.m_hour = 11;
     
-    now.setHour(1000);
-    
+    now.setHour(11);
     //now.m_minute = 0;
     //now.m_second = 0;
 
     now.print();
 
     Time pause;
-
     //pause.m_hour = 10;
     //pause.m_minute = 40;
     //pause.m_second = 30;

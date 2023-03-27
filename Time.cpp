@@ -39,8 +39,72 @@ void Time::setHour(int hour)
     }
 }
 
+int Time::getMinute()
+{
+    return m_minute;
+}
 
+void Time::setMinute(int minute)
+{
+    // Überprüfung der Parameter
+    if (minute >= 0 && minute < 60) {
+        m_minute = minute;
+    }
+    else
+    {
+        // Silent Error Recovery: Falscher wert wird ignoriert.
+
+        // Logging:
+        printf("Falscher Wert für Minuten: %d\n", minute);
+    }
+}
+
+int Time::getSecond()
+{
+    return m_second;
+}
+
+void Time::setSecond(int second)
+{
+    // Überprüfung der Parameter
+    if (second >= 0 && second < 60) {
+        m_second = second;
+    }
+    else
+    {
+        // Silent Error Recovery: Falscher wert wird ignoriert.
+
+        // Logging:
+        printf("Falscher Wert für Sekunden: %d\n", second);
+    }
+}
+
+// Methods
 void Time::print()
 {
     printf("%d:%d:%d\n", m_hour, m_minute, m_second);
+}
+
+
+// 1. Variante
+//void Time::add(Time time)
+//{
+//    // Ist noch nicht behandelt: ÜBERLAUF
+//
+//    m_hour = m_hour + time.m_hour;
+//    m_minute = m_minute + time.m_minute;
+//    m_second = m_second + time.m_second;
+//}
+
+
+// 2. Variante
+Time Time::add(Time time)
+{
+    Time result;
+
+    result.m_hour = m_hour + time.m_hour;
+    result.m_minute = m_minute + time.m_minute;
+    result.m_second = m_second + time.m_second;
+
+    return result;
 }
