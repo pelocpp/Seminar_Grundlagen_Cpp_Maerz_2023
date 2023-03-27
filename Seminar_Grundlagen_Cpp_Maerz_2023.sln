@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BB4800D5-A7FE-4891-9C85-8310CF960667}"
 	ProjectSection(SolutionItems) = preProject
 		Agenda_Grundlagen.pdf = Agenda_Grundlagen.pdf
+		Mutable.png = Mutable.png
 		Notizen.txt = Notizen.txt
 	EndProjectSection
 EndProject

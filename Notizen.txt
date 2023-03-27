@@ -218,10 +218,10 @@ now . add ( abstand );
 
 
     // 1. Variante
-    // void add(Time time);
+    void add(Time time);   // veränderbar
 
     // 2. Variante
-    Time add(Time time);
+    Time add(Time time);   // unveränderbar
 
 A) Das Ergebnis wird IM Objekt abgelegt: Dies entspricht einem rein OO Charakter
 
@@ -229,3 +229,89 @@ B) Das Ergebnis wird als separates Objekt zurückgeliefert:
 
       Tut man, wenn man das aktuelle Objekt nicht verändern möchte.
 
+
+
+Welche Variante nehmen wir ???
+
+Hilfestellung:
+
+Aussage: Ist mir der "alte Zustand" wichtig oder eher nicht ???
+
+Variante A) könnte man als Regelfall bezeichnen.
+
+Variante B) findet häufig Anwendung in "mathematischem" Umfeld:
+
+
+Complex c1, c2, c3;
+
+c1.add (c2);
+
+versus 
+
+c3 = c1.add(c2);
+
+c3 = c1 + c2;
+
+Informatik:
+
+Variante A): Aktuelles Objekt wird verändert / veränderbar:  mutable
+
+Variante B): Aktuelles Objekt wird nicht verändert / unveränderbar:  immutable
+
+
+// =======================================================
+
+Konzeption einer Methode // Überlegungen zu den Parametern
+
+Time add(Time time);   // nicht falsch
+
+
+Parameterübergabe:
+
+Datenstruktur:  Stack / Stapel
+
+Call-by-Value
+
+Mikro-Computer Programmierung:   Stack Frame
+
+
+Wie geht es richtig ???
+
+2 Lösungen:
+
+A) C      - mit Pointer / Adressen
+
+B) C++    - mit Referenzen / reference
+
+Warum auch C: Weil C in C++ enthalten ist ( 99% )
+
+
+Zwischen Pointer und Referenzen gibt es einen großen Unterschied:
+
+Es gibt bei Pointern die so gen. "Zeigerarithmetik"
+
+Diese gibt es NICHT bei Referenzen !!!
+
+// =======================================================
+
+Lebensdauer von Variablen:
+
+== Globale Variablen:     außerhalb von allen Konstrukten
+== Lokale Variablen:      innerhalb von Methoden / Funktionen
+== Dynamische Variablen:  malloc / free // C++: new / delete
+
+-- Konstanten - zählen nicht so wirklich zu Variablen
+-- Referenzen - hmmm, sehr interessant -- gehören nicht in diese Kategorie
+
+Wo werden Variablen dieser 3 Kategorien abgelegt ???
+
+i)   Globale Variablen:     Data Segment  -- DS
+ii)  Lokale Variablen:      Stack Segment -- SS  ( Stack / Stapel)
+iii) Dynamische Variablen:  Extra Segment -- ES  ( Heap / Halde)
+iv)  Maschinencode:         Code Segment  -- CS
+
+Das Stack hat eine Besonderheit:
+
+Zugriff ist nur an der obersten Stelle / an einem Ende möglich.
+
+// =======================================================

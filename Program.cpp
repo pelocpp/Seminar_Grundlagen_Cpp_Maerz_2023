@@ -2,8 +2,18 @@
 
 #include "Time.h"
 
-// Einsprungpunkt in das Programm
+void test_swap();
+void test_pointer_vs_reference();
+
+
 int main()
+{
+    //test_swap();
+    test_pointer_vs_reference();
+}
+
+// Einsprungpunkt in das Programm
+int main_mutable()
 {
     printf("Hallo Seminar\n");
 
