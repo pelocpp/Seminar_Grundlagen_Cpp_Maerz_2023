@@ -17,9 +17,10 @@ public:
 
 public:
     // getter/setter
-    int getHour();
-    int getMinute();
-    int getSecond();
+    // int getHour() const;
+    int getHour() const { return m_hour; }
+    int getMinute() const;
+    int getSecond() const;
 
     void setHour(int hour);
     void setMinute(int minute);
@@ -30,10 +31,15 @@ public:
     void print();
 
     // 1. Variante
-    // void add(Time time);
+    void add(const Time& time);                 // mutable
 
     // 2. Variante
-    Time add(Time time);
+    // Time add(Time time);
+
+    Time add2(const Time& time) const;   // immutable
 
     // Time tomorrow();
+
+private:
+
 };

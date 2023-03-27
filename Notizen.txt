@@ -265,6 +265,27 @@ Konzeption einer Methode // Überlegungen zu den Parametern
 
 Time add(Time time);   // nicht falsch
 
+Wie ist eine Schnittstelle
+
+Time add(Time time);   
+
+zu bewerten: Geht, aber das Objekt 'time' wird KOPIERT ==> Performanz schlecht
+
+Besser:
+
+Time Time::add2(Time& time):   Eine Referenz wird übergeben  ==> Performanz gut
+
+We can do better:   Qualität
+
+Time Time::add2(const Time& time):   
+
+a) Qualität
+
+b) Der Compiler hat bei Verwendung von 'const' mehrere Möglichkeiten der Optimierung.
+
+
+// =======================================================
+
 
 Parameterübergabe:
 
@@ -317,3 +338,33 @@ Zugriff ist nur an der obersten Stelle / an einem Ende möglich.
 // =======================================================
 // =======================================================
 // =======================================================
+
+Umleiten von Konstruktoren
+
+Constructor Chaining
+
+// =======================================================
+
+Header-Datei versus Implementierungs-Datei:
+
+Realisierung einer Methode im Header-File:
+
+Pro:
+
+-- Ist kürzer / geht schneller
+-- Bietet sich für "Ein-Zeiler" an
+
+
+Contra:
+
+-- Realisierung wandert von der Implementierungs-Datei in das Header-File
+-- Im Sinne vom "Information-Hiding" nicht optimal :)
+
+Aussage:
+
+Das Header-File ist konzipiert für den Anwender,
+die Implementierungs-Datei wird in einer Bibliothek abgelegt werden (.lib).
+
+
+
+

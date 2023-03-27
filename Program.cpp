@@ -8,6 +8,8 @@ void test_pointer_vs_reference();
 
 int main()
 {
+    Time leer;
+
     //test_swap();
     test_pointer_vs_reference();
 }
@@ -22,11 +24,11 @@ int main_mutable()
     Time abstand(4, 0, 0);
 
     // Variante 1
-    // now.add(abstand);
+    now.add(abstand);
 
     // Variante 2
-    Time end;
-    end = now.add(abstand);
+    //Time end;
+    //end = now.add(abstand);
 
     return 0;
 }

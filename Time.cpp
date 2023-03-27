@@ -5,12 +5,16 @@
 
 #include "Time.h" 
 
-Time::Time()
-{
-    m_hour = 0;
-    m_minute = 0;
-    m_second = 0;
-}
+//Time::Time()
+//{
+//    m_hour = 0;
+//    m_minute = 0;
+//    m_second = 0;
+//}
+
+// Constructor Chaining
+Time::Time() : Time (0, 0, 0) {}
+
 
 Time::Time(int hour, int minute, int second)
 {
@@ -19,10 +23,10 @@ Time::Time(int hour, int minute, int second)
     m_second = second;
 }
 
-int Time::getHour()
-{
-    return m_hour;
-}
+//int Time::getHour() const
+//{
+//    return m_hour;
+//}
 
 void Time::setHour(int hour)
 {
@@ -39,7 +43,7 @@ void Time::setHour(int hour)
     }
 }
 
-int Time::getMinute()
+int Time::getMinute() const
 {
     return m_minute;
 }
@@ -59,7 +63,7 @@ void Time::setMinute(int minute)
     }
 }
 
-int Time::getSecond()
+int Time::getSecond() const
 {
     return m_second;
 }
@@ -87,24 +91,55 @@ void Time::print()
 
 
 // 1. Variante
-//void Time::add(Time time)
-//{
-//    // Ist noch nicht behandelt: ÜBERLAUF
-//
-//    m_hour = m_hour + time.m_hour;
-//    m_minute = m_minute + time.m_minute;
-//    m_second = m_second + time.m_second;
-//}
+void Time::add(const Time& time)  // mutable
+{
+    // Ist noch nicht behandelt: ÜBERLAUF
+
+    m_hour = m_hour + time.m_hour;
+    m_minute = m_minute + time.m_minute;
+    m_second = m_second + time.m_second;
+}
 
 
 // 2. Variante
-Time Time::add(Time time)
+//Time Time::add(Time time)
+//{
+//    Time result;
+//
+//    result.m_hour = m_hour + time.m_hour;
+//    result.m_minute = m_minute + time.m_minute;
+//    result.m_second = m_second + time.m_second;
+//
+//    return result;
+//}
+
+
+//Time Time::add2(const Time& time) const
+//{
+//    Time result;
+//
+//    result.m_hour =   m_hour   + time.getHour();
+//    result.m_minute = m_minute + time.m_minute;
+//    result.m_second = m_second + time.m_second;
+//
+//    return result;
+//}
+
+//Time Time::add2(const Time& time) const
+//{
+//    int hour = m_hour + time.getHour();
+//    int minute = m_minute + time.m_minute;
+//    int second = m_second + time.m_second;
+//
+//    Time result(hour, minute, second);  // geeigneten Konstruktor
+//    return result;
+//}
+
+Time Time::add2(const Time& time) const
 {
-    Time result;
+    int hour = m_hour + time.getHour();
+    int minute = m_minute + time.m_minute;
+    int second = m_second + time.m_second;
 
-    result.m_hour = m_hour + time.m_hour;
-    result.m_minute = m_minute + time.m_minute;
-    result.m_second = m_second + time.m_second;
-
-    return result;
+    return Time (hour, minute, second);   // geeigneten Konstruktor
 }
