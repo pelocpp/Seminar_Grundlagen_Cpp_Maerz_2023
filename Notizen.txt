@@ -405,3 +405,5 @@ Tipp: Könnte eine private Hilfsmethode helfen:
 
    int toSeconds();
 
+HINWEIS: Constructor Chaining geht NICHT in ÄLTEREN Versionen.
+

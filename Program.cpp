@@ -4,7 +4,7 @@
 
 void test_swap();
 void test_pointer_vs_reference();
-
+void exercise_time();
 
 int main()
 {
