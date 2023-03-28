@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dynamic.cpp" />
-    <ClCompile Include="Excercise_Program.cpp" />
+    <ClCompile Include="Excercise_Fraction.cpp" />
+    <ClCompile Include="Excercise_Fraction_Program.cpp" />
+    <ClCompile Include="Excercise_Time_Program.cpp" />
     <ClCompile Include="Excercise_Time.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="Parameter.cpp" />
@@ -29,6 +31,7 @@
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Excercise_Fraction.h" />
     <ClInclude Include="Excercise_Time.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>

@@ -108,7 +108,7 @@ void testInputOutput()
     std::cout << t << std::endl;
 }
 
-void exercise_time()
+void main_exercise_time()
 {
     testCtors();
     testAdd();

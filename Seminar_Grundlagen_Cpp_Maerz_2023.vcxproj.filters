@@ -27,7 +27,7 @@
     <ClCompile Include="Excercise_Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Excercise_Program.cpp">
+    <ClCompile Include="Excercise_Time_Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Output.cpp">
@@ -39,12 +39,21 @@
     <ClCompile Include="Dynamic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Excercise_Fraction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Excercise_Fraction_Program.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Excercise_Time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Excercise_Fraction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
