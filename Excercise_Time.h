@@ -18,23 +18,29 @@ namespace ExerciseTime {
     public:
         // c'tors
         Time();
+
         Time(int seconds, int minutes, int hours);
-        Time(int seconds);  // conversion c'tor
+        // oder
+        //Time(int, int, int);
+
+        Time(int seconds);  // conversion c'tor:    Konvertierung: int -> Time
+
         Time(const char*);  // conversion c'tor
 
         // getter // setter
         int getSeconds() const { return m_seconds; };
         int getMinutes() const { return m_minutes; };
         int getHours() const { return m_hours; };
+
         void setSeconds(int seconds);
         void setMinutes(int minutes);
         void setHours(int hours);
 
         // public interface
         void reset();
-        void add(const Time&);
-        void sub(const Time&);
-        Time diff(const Time&) const;
+        void add(const Time& other);    //  mutable / veränderbar
+        void sub(const Time& other);
+        Time diff(const Time& other) const;   //  immutable / unveränderbar
         void increment();
         void decrement();
 

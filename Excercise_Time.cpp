@@ -68,31 +68,38 @@ namespace ExerciseTime {
         m_hours = 0;
     }
 
-    void Time::add(const Time& t)
+    void Time::add(const Time& other)
     {
-        m_seconds += t.m_seconds;
-        m_minutes += t.m_minutes;
-        m_hours += t.m_hours;
+        m_seconds += other.m_seconds;
+        // oder 
+        // m_seconds = m_seconds + other.m_seconds;
+
+
+        m_minutes += other.m_minutes;
+        m_hours += other.m_hours;
 
         // normalize object
         m_minutes += m_seconds / 60;
         m_hours += m_minutes / 60;
-        m_seconds = m_seconds % 60;
+
+        m_seconds = m_seconds % 60;   // %:  Rest bei Division
         m_minutes = m_minutes % 60;
         m_hours = m_hours % 24;
     }
 
-    void Time::sub(const Time& t)
+    // this:  Time&  ODER Time*  ===> Time*
+
+    void Time::sub(const Time& other)
     {
         int seconds =
             (m_hours * 3600 + m_minutes * 60 + m_seconds) -
-            (t.m_hours * 3600 + t.m_minutes * 60 + t.m_seconds);
+            (other.m_hours * 3600 + other.m_minutes * 60 + other.m_seconds);
 
         if (seconds < 0)
             seconds += 24 * 60 * 60;
 
         // transform total seconds into hours, minutes and seconds
-        secondsToTime(seconds);
+        this->secondsToTime(seconds);
     }
 
     Time Time::diff(const Time& t) const
@@ -108,22 +115,35 @@ namespace ExerciseTime {
 
     void Time::increment()
     {
-        m_seconds++;
-        if (m_seconds >= 60)
-        {
-            m_seconds = 0;
-            m_minutes++;
-            if (m_minutes >= 60)
-            {
-                m_minutes = 0;
-                m_hours++;
-                if (m_hours >= 24)
-                {
-                    m_hours = 0;
-                }
-            }
-        }
+        Time oneSecond(1, 0, 0);
+
+        this->add(oneSecond);
     }
+
+    //void Time::increment()
+    //{
+    //    m_seconds++;
+    //    // oder
+    //    // m_seconds = m_seconds + 1;
+
+    //    if (m_seconds >= 60)
+    //    {
+    //        m_seconds = 0;
+
+    //        m_minutes++;
+
+    //        if (m_minutes >= 60)
+    //        {
+    //            m_minutes = 0;
+
+    //            m_hours++;
+    //            if (m_hours >= 24)
+    //            {
+    //                m_hours = 0;
+    //            }
+    //        }
+    //    }
+    //}
 
     void Time::decrement()
     {

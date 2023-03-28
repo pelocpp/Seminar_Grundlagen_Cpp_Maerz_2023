@@ -1,20 +1,31 @@
 // ===========================================================================
-// Program.cpp
+// Excercise_Program.cpp
 // ===========================================================================
 
 #include "Excercise_Time.h"
 
 using namespace ExerciseTime;
 
+void testIncrementSpecial()
+{
+    Time t(55, 59, 23);
+    t.increment();
+}
+
 void testCtors()
 {
     Time t1;
+
     std::cout << t1 << std::endl;
-    Time t2(0, 30, 12);
+
+    ExerciseTime::Time t2(0, 30, 12);
+
     std::cout << t2 << std::endl;
-    Time t3("09:30:00");
+
+    ExerciseTime::Time t3("09:30:00");
     std::cout << t3 << std::endl;
-    Time t4(24 * 60 * 60 - 1);
+
+    ExerciseTime::Time t4(24 * 60 * 60 - 1);
     std::cout << t4 << std::endl;
 }
 
@@ -25,7 +36,9 @@ void testAdd()
     Time t2(33, 33, 3);
     for (int i = 0; i < 5; i++)
     {
+
         t1.add(t2);
+
         std::cout << t1 << std::endl;
     }
 }

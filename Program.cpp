@@ -5,9 +5,12 @@
 void test_swap();
 void test_pointer_vs_reference();
 void exercise_time();
+void testIncrementSpecial();
 
 int main()
 {
+    testIncrementSpecial();
+
     Time leer;
 
     //test_swap();
