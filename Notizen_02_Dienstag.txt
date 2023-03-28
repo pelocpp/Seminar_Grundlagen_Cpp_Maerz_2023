@@ -93,3 +93,343 @@ C++:  std
       std::ranges::views
 
 
+// ==============================================================
+
+Überladen von Operatoren:
+
+Time oneSecond (1, 0, 0);
+
+Time t2 = t1.add (oneSecond);   // Ergebnis in t2
+
+oder
+
+t1.add (oneSecond);             // Ergebnis in t1
+
+Ästhetik:
+
+Notation mit einem Operator:
+
+Time t2 = t1 + oneSecond;       // Ergebnis in t2   // immutable
+
+Vorbemerkungen:
+
+Für welche Operatoren geht das?
+   Nahezu alle in C definierten Operatoren.
+
+// --------------------------------------------------------- 
+
+Begriff: Stelligkeit
+
+Zu beachten: "Stelligkeit"  ==> Wie viele Operanden hat ein Operator ???
+
+Beispiel: '+'  ==> hat 2 Operanden ( a + b ) // '+' hat Stelligkeit 2
+
+Ausnahme:  '+' gibt es auch mit Stelligkeit 1
+
+Beispiel:   +17 ,   -123
+
+// --------------------------------------------------------- 
+
+Begriff: Vorrang  // Precedence
+
+Einfach formuliert:   Punkt - vor - Strich
+
+int n = 1 - 2 * 3;     // n = -5    // NICHT: -3
+
+int n = (1 - 2) * 3;   // n = -3 
+
+Ganze Tabelle:
+
+https://en.cppreference.com/w/cpp/language/operator_precedence
+
+Der Vorrang eines Operators bleibt beim "Überladen von Operatoren" erhalten!
+
+// --------------------------------------------------------- 
+
+Begriff: Assoziativität
+
+Reihenfolge bei mehreren gleichen Operatoren:
+
+int n = 1 - 2 - 3;       // n = -4
+
+int n = (1 - 2) - 3;     // n = -4
+
+// --------------------------------------------------------- 
+
+ZU beachten:
+
+Liste aller Operatoren:
+
+https://en.cppreference.com/w/cpp/language/operators
+
+Wann und nur wann sollte man in einer Klasse einen Operator überladen:
+
+Nur dann, wenn der Quellcode auf diese Weise LESBAR ist !!!!!!!!!!!!!!!!
+
+Time pause = now + nochAuszuhalten; 
+
+// --------------------------------------------------------- 
+
+Wie geht "Überladen von Operatoren":
+
+Wie das Schreiben einer Methode:
+   Die Methode hat einen speziellen Namen:    operator +   // add
+
+// --------------------------------------------------------- 
+
+Zweite Variante zum "Überladen von Operatoren":
+
+Zum Beispiel, wenn die Header-Datei / die Definition der Klasse 
+nicht zur Verfügung steht:
+
+Definition eines Operators als "globale Methode" / außerhalb der Klasse:
+
+A) Muss dann über die getter / setter in der Realisierung gehen.
+
+B) Ein Zugriff auf 'private' Member ist möglich, wenn die Klasse
+   eine "Freundschaft" ausspricht :  'friend'
+
+
+// ==========================================================
+
+Eingabe / Ausgabe:
+
+C:    printf 
+
+C++:  std::cout 
+
+C++ 20: "the return of printf":  std::format (C# / Java): Ähnlich / besser wie printf
+
+std::cout :  Console Output
+
+Anmerkung:
+
+Schreiben wir std::cout oder cout ????????
+
+Empfehlung: 
+
+DON'T USE "using namespace std;"
+
+Neue Zeile:
+
+'\n' versus std::endl:
+
+'\n':      Neue Zeile
+
+std::endl: Neue Zeile + Es wird der gesamte Ausgabepuffer geleert. (flush)
+
+------------------------------------------------------
+
+Ausgabe einer Klasse mit std::cout und <<:
+
+    Time now(11, 35, 0);
+
+    std::cout << now;
+
+Frage: Wie lautet die Schnittstelle des operator << ???
+
+    void operator << ( ... )
+
+Hilfestellung:  std::cout ist ein Objekt vom Typ std::ostream
+
+Zweite Hilfe:
+
+   operator<< ( std::cout , now )
+
+   ODER
+
+   std::cout.operator<< (now);   // ????????????????????
+
+Der operator<< kann NUR ALS GLOBALE FUNKTION realisiert werden:
+
+Warum? Weil der erste Operand vom Typ std::ostream (std::cout)  ist und
+       damit NICHT vom Typ 'Time'
+
+// =============================================================
+
+Behandlung von Ausnahmen:
+
+Ausnahme: Ein Fehler // eine Situation, die nicht eintreten darf:
+
+double result = n / m;   // m <====   m = 0.0
+
+if (m != 0.0) ...
+
+FILE* fp;
+
+fp = OpenFile ("DATEI.TXT");
+fp = NULL
+
+Exception - Handling:
+
+Umsetzung:
+
+A) Es tritt eine Ausnahme auf:
+
+    throw   -- "werfen / schmeißen": 
+
+    Ein Objekt des Typs std::exception (der Einfachheit halber)
+
+
+B) Eine Routine, in der eine Ausnahme auftreten kann, wird aufgerufen:
+
+    try ... catch ...
+
+    try: Enthält eine - oder mehrere - Anweisungen, die kritisch sein können.
+
+    catch: Enthält die Behandlung des Fehlers !
+
+Offene Bemerkung:
+
+A) Nicht immer einfach:  Die Routine "mit Fehler" ist ja schon abgelaufen ....
+
+B) Ich kann zumindest einen Absturz verhindern
+
+// ====================================================================
+
+Error Handling ( gibt es etwas anderes als try-catch ? )
+
+A) try-catch:  throw
+
+B) Via Rückgabewert vom Typ bool:
+
+An Stelle von:
+
+int langeBerechnung()
+{
+    return 123;
+}
+
+diese Variante:
+
+bool langeBerechnung(int& result)
+{
+    // berechnung ....
+
+    if (berechnung erfolgreich) {
+    
+        result = 12;  // 12 soll für einen korrekten Wert stehen
+        return true;
+    }
+    else {
+        result = 0;   // Wert zurücksetzen
+        return false;
+    }
+}
+
+i) einfache Berechnung:
+
+   int n = langeBerechnung();   
+   // Was steht jetzt in n drin ??????????????????
+
+
+ii) nicht so einfache Berechnung:
+
+   int n = 1;
+   
+   bool succeeded = langeBerechnung(n);
+   
+   if (succeeded == true) {
+      // alles passt
+   }
+   else {
+      // habe einen Fehler entdeckt: Wie geht es weiter ?????
+   }
+
+
+C) In guter Produkt-Software sollte ein gutes LOGGING enthalten sein:
+
+   Mit Logging (in eine Datei):    log / printf - Funktionen.
+
+D) Der Vollständigkeit halber:
+
+   Sehr kleine, nicht bedeutende Fehler: Ignorieren  --- oder via Logging protokollieren.
+
+
+Beispiel:
+
+STL:
+
+at versus [] - zb bei Klassen std::array oder auch std::vector.
+
+[]:   No bounds checking is performed.
+
+Wenn ein Fehler eintritt:  UB - Undefined Behaviour // Absturz oder auch nicht ...
+
+Java:  Robust  weil catch ERZWUNGEN Wird von Compiler (Signatur: throw)
+
+C#: Ist ja wie Java, aber catch wird nicht erzwungen :(
+
+
+// =====================================================================
+
+Dynamische Daten:
+
+Recap:
+
+== Globale Daten
+== Lokale Daten
+== Dynamische Daten
+
+Dynamische Daten sind - bzgl. der Inanspruchnahme von Speicher - am besten:
+
+== Globale Daten:  Belegen des Speicher die GESAMTE Laufzeit des Programms
+
+== Lokale Daten: Sind nur in einer Methode (Funktion) vorhanden und danach wieder weg:
+                 Sie sind eigentlich nur für "Zwischenergebnisse" geeignet.
+
+== Dynamische Daten: Optimal: Werden angelegt, wenn notwendig.
+                              Werden freigegeben, wenn nicht mehr benötigt.
+
+   Hmmm, Handling vielleicht nicht immer ganz einfach :)
+
+
+
+Prinzipiell:
+
+Singular:  Ein Datum / ein Objekt
+Plural:    Mehrere Objekte
+
+Für dynamische Daten benötige ich den Datentyp POINTER (nicht REFERENZ):
+
+// =======================================================
+
+Lebensdauer von Variablen:
+
+== Globale Variablen:     außerhalb von allen Konstrukten
+== Lokale Variablen:      innerhalb von Methoden / Funktionen
+== Dynamische Variablen:  malloc / free // C++: new / delete
+
+-- Konstanten - zählen nicht so wirklich zu Variablen
+-- Referenzen - hmmm, sehr interessant -- gehören nicht in diese Kategorie
+
+Wo werden Variablen dieser 3 Kategorien abgelegt ???
+
+i)   Globale Variablen:     Data Segment  -- DS
+ii)  Lokale Variablen:      Stack Segment -- SS  ( Stack / Stapel)
+iii) Dynamische Variablen:  Extra Segment -- ES  ( Heap / Halde)
+iv)  Maschinencode:         Code Segment  -- CS
+
+Das Stack hat eine Besonderheit:
+
+Zugriff ist nur an der obersten Stelle / an einem Ende möglich.
+
+// =============================================================
+
+Mit new wird angelegt
+
+Mit delete wird freigegeben
+
+Regel: Zu jedem new MUSS es EIN delete geben !!!!!!!!!!!!!!!
+
+// =============================================================
+
+C++  Grundlagen:  new / delete
+
+Modern C++:       std::unique_ptr // std::shared_ptr
+
+Hier wird das delete von der Klasse (std::unique_ptr bzw. std::shared_ptr)
+verwaltet bzw. übernommen.
+
+// =============================================================
+

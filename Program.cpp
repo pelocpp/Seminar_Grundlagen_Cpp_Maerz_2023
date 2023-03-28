@@ -7,7 +7,24 @@ void test_pointer_vs_reference();
 void exercise_time();
 void testIncrementSpecial();
 
-int main()
+void main_with_operators()
+{
+    Time now(10, 8, 0);
+
+    Time nochAuszuhalten(0, 30, 0);
+
+    Time pause = now + nochAuszuhalten;   //  Infix - Notation / Operatoren
+
+    // Nur zur Erläuterung / zum besseren Verständnis (Operator == Methode):
+    // Time pause2 = now.operator+ (nochAuszuhalten);
+
+    // Nur zur Erläuterung / zum besseren Verständnis (Operator == glob. Funktion):
+    Time pause2 = operator+ (now, nochAuszuhalten);
+}
+
+
+
+void main_diverses()
 {
     testIncrementSpecial();
 

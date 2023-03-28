@@ -1,7 +1,8 @@
 // Realisierung / Implementierung der Methoden der Klasse Time
 
 
-#include <vector> 
+#include <iostream> 
+#include <iomanip> 
 
 #include "Time.h" 
 
@@ -28,6 +29,21 @@ Time::Time(int hour, int minute, int second)
 //    return m_hour;
 //}
 
+//void Time::setHour(int hour)
+//{
+//    // Überprüfung der Parameter
+//    if (hour >= 0 && hour < 24) {
+//        m_hour = hour;
+//    }
+//    else
+//    {
+//        // Silent Error Recovery: Falscher wert wird ignoriert.
+//
+//        // Logging:
+//        printf("Falscher Wert für Stunden: %d\n", hour);
+//    }
+//}
+
 void Time::setHour(int hour)
 {
     // Überprüfung der Parameter
@@ -36,11 +52,10 @@ void Time::setHour(int hour)
     }
     else
     {
-        // Silent Error Recovery: Falscher wert wird ignoriert.
-
-        // Logging:
-        printf("Falscher Wert für Stunden: %d\n", hour);
+        throw std::exception("Falscher Wert für Stunde");    
     }
+
+    //  std::cout << "Ende von setHour ???" << std::endl;
 }
 
 int Time::getMinute() const
@@ -142,4 +157,63 @@ Time Time::add2(const Time& time) const
     int second = m_second + time.m_second;
 
     return Time (hour, minute, second);   // geeigneten Konstruktor
+}
+
+
+//Time Time::operator+ (const Time& time) const
+//{
+//    int hour = m_hour + time.m_hour;
+//    int minute = m_minute + time.m_minute;
+//    int second = m_second + time.m_second;
+//
+//    return Time (hour, minute, second);   // geeigneten Konstruktor
+//}
+
+// =======================================================
+// Definition eines Operators als "globale Funktion"
+
+//Time operator+ (const Time& left, const Time& right)
+//{
+//    Time result;
+//
+//    int hour = left.getHour() + right.getHour();
+//    int minute = left.getMinute() + right.getMinute();
+//    int second = left.getSecond() + right.getSecond();
+//
+//    result.setHour(hour);
+//    result.setMinute(minute);
+//    result.setSecond(second);
+//
+//    return result;
+//}
+
+// =======================================================
+// Definition eines Operators als "globale Funktion"
+
+Time operator+ (const Time& left, const Time& right)
+{
+    Time result;
+
+    result.m_hour =   left.m_hour +   right.m_hour;
+    result.m_minute = left.m_minute + right.m_minute;
+    result.m_second = left.m_second + right.m_second;
+
+    return result;
+}
+
+//void operator<< (std::ostream& os, const Time& time)
+//{
+//    // 10:30:40
+//    os << time.getHour() << ':' << time.getMinute() << ':' << time.getSecond();
+//}
+
+std::ostream& operator<< (std::ostream& os, const Time& time)
+{
+    // 10:30:40
+    os 
+        << std::setw(2) << std::setfill('0') << time.getHour() << ':'
+        << std::setw(2) << std::setfill('0') << time.getMinute() << ':'
+        << std::setw(2) << std::setfill('0') << time.getSecond();
+
+    return os;
 }

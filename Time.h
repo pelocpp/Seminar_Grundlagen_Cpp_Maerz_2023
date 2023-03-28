@@ -2,6 +2,8 @@
 
 class Time
 {
+    friend Time operator+ (const Time& left, const Time& right);
+
 private:
     // data
     int m_hour;
@@ -40,8 +42,21 @@ public:
 
     Time add2(const Time& time) const;   // immutable
 
-    // Time tomorrow();
+
+    // Operators
+    // Time operator+ (const Time& time) const;   // immutable
 
 private:
 
 };
+
+// =======================================================
+// Definition eines Operators als "globale Funktion"
+
+
+// friend-Deklaration in der Klasse macht die nächste Zeile überflüssig:
+Time operator+ (const Time& left, const Time& right);
+
+// Ausgabe kann NUR ALS "globale Funktion" realisiert werden:
+std::ostream& operator<< ( std::ostream& os, const Time& time);
+
