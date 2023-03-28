@@ -13,8 +13,11 @@
 //    m_second = 0;
 //}
 
-// Constructor Chaining
-Time::Time() : Time (0, 0, 0) {}
+// Constructor Chaining  // C++ 17 oder aufwärts
+Time::Time() : Time (0, 0, 0)
+{
+    std::cout << "c'tor()" << std::endl;
+}
 
 
 Time::Time(int hour, int minute, int second)

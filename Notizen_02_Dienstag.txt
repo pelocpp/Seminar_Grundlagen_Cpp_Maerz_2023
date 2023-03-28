@@ -433,3 +433,101 @@ verwaltet bzw. übernommen.
 
 // =============================================================
 
+Allokation mehrerer Daten:
+
+    Time* ts = new Time[5]; 
+
+
+In ts ist die Adresse des ERSTEN Objekts abgelegt.
+
+ACHTUNG:
+
+Singular:
+
+Time* tp = new Time;
+...
+delete tp;
+
+ODER Plural:
+
+Time* tp = new Time[5];
+...
+delete[] tp;   // hier müssen Klammern [] stehen
+
+Was passiert, wenn die Klammern fehlen:  UB.
+
+// =============================================================
+
+C- Sprachbeschreibung:
+
+Wofür steht in C der Name eines Felds / Arrays:
+
+Für die Adresse des ERSTEN Elements.
+
+Feld: Statisch -- Länge muss KONSTANT sein (5)
+
+// =============================================================
+
+Übung:
+
+Schulmathematik  :  Bruchrechnung
+
+1/7 und 3/7 = 4/7
+
+1/2 + 3/4 = ...
+
+Klasse Fraction  // RationalNumber 
+
+Instanzvariablen:
+
+1/7:    Zähler (m_numerator) und Nenner (m_denominator)  // m_num // m_denom
+
+Fraction f1 (1, 7);
+
+Fraction f2 (3, 7);
+
+Fraction f3;
+
+f3 = f1 + f2;
+
+f3 = f1.add (f2);
+
+Ausgabe auf der Konsole:
+
+std::cout << f1 << std::endl;
+
+bool: true, false
+
+bool result = (f1 <= f2);
+
+if (f1 <= f2) {
+   std::cout ..............
+} 
+
+In der Klasse oder außerhalb der Klasse:
+
+bool operator<= ( parameter );
+
+Letzte Anregung:
+
+int nenner = .......
+
+Fraction f1 (1, nenner);   // 
+
+Fraction f1 (1, 0);   // Hier könnte man eine Ausnahme werfen (throw) 
+                      // .... und woanders fangen  (try ... catch)
+
+Tipps:
+
+https://github.com/pelocpp/cpp_basic_examples
+
+oder tiefer:
+
+https://github.com/pelocpp/cpp_basic_examples/tree/master/Examples/Fraction
+
+Ab 16 Uhr wieder am Platz:
+
+Ab 16.30 bin ich weg :)
+
+
+

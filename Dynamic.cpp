@@ -3,6 +3,50 @@
 
 #include "Time.h"
 
+void mehrereDatenWerdenAngelegt()
+{
+    int wieviele = 5;
+
+    Time festeAnzahlUhrzeiten [5];
+
+    Time* ts = new Time[wieviele];   // 5 Time-Objekte werden angelegt 
+
+    // Zugriff -- mit dem Operator []
+
+    int stundeErstesElement = ts[0].getHour();
+
+    for (int i = 0; i < 5; ++i) 
+    {
+        ts[i].setHour(15);
+    }
+
+    for (int i = 0; i < 5; ++i)
+    {
+        std::cout << ts[i] << std::endl;
+    }
+
+    delete[] ts;
+}
+
+void mehrereDatenWerdenAngelegtAlternate()
+{
+    Time* ts = new Time[5];   // 5 Time-Objekte werden angelegt 
+
+    // Zugriff -- mit dem Operator []
+
+    for (int i = 0; i < 5; ++i)
+    {
+        (ts + i)->setHour(15+i);
+    }
+
+    for (int i = 0; i < 5; ++i)
+    {
+        std::cout << ts[i] << std::endl;
+    }
+}
+
+
+
 Time* datenWerdenAngelegt ()
 {
     Time* t = new Time();   // Standard-Konstruktor
@@ -26,7 +70,7 @@ void datenWerdenVerwendet(Time* tp)
 }
 
 
-int main()
+int main_dynamic_01()
 {
     Time* tp = datenWerdenAngelegt();
 
@@ -39,4 +83,10 @@ int main()
     return 0;
 }
 
+int main()
+{
+    mehrereDatenWerdenAngelegt();
+
+    return 0;
+}
 
