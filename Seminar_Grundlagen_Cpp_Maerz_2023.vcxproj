@@ -25,6 +25,11 @@
     <ClCompile Include="Excercise_Fraction_Program.cpp" />
     <ClCompile Include="Excercise_Time_Program.cpp" />
     <ClCompile Include="Excercise_Time.cpp" />
+    <ClCompile Include="Exercise_Accounts\Account.cpp" />
+    <ClCompile Include="Exercise_Accounts\CurrentAccount.cpp" />
+    <ClCompile Include="Exercise_Accounts\DepositAccount.cpp" />
+    <ClCompile Include="Exercise_Accounts\Excercise_Accounts_Program.cpp" />
+    <ClCompile Include="Exercise_Accounts\StudentsAccount.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="Parameter.cpp" />
     <ClCompile Include="Program.cpp" />
@@ -36,6 +41,11 @@
     <ClInclude Include="BigData.h" />
     <ClInclude Include="Excercise_Fraction.h" />
     <ClInclude Include="Excercise_Time.h" />
+    <ClInclude Include="Exercise_Accounts\Account.h" />
+    <ClInclude Include="Exercise_Accounts\CurrentAccount.h" />
+    <ClInclude Include="Exercise_Accounts\DepositAccount.h" />
+    <ClInclude Include="Exercise_Accounts\IAccount.h" />
+    <ClInclude Include="Exercise_Accounts\StudentsAccount.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

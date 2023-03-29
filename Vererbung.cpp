@@ -171,8 +171,7 @@ void vererbung03()
     }
 }
 
-
-int main()
+int main_vererbung ()
 {
     vererbung03();
 

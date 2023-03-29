@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Exercise_Accounts">
+      <UniqueIdentifier>{52f85829-8b7c-4388-a58e-3b86d2c3b09e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Time.cpp">
@@ -51,6 +54,21 @@
     <ClCompile Include="Vererbung.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Exercise_Accounts\Account.cpp">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercise_Accounts\CurrentAccount.cpp">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercise_Accounts\DepositAccount.cpp">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercise_Accounts\Excercise_Accounts_Program.cpp">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercise_Accounts\StudentsAccount.cpp">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
@@ -64,6 +82,21 @@
     </ClInclude>
     <ClInclude Include="BigData.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exercise_Accounts\Account.h">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="Exercise_Accounts\CurrentAccount.h">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="Exercise_Accounts\DepositAccount.h">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="Exercise_Accounts\IAccount.h">
+      <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="Exercise_Accounts\StudentsAccount.h">
+      <Filter>Source Files\Exercise_Accounts</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
