@@ -237,3 +237,128 @@ Jegliche Anwendung der Vererbung MUSS INTUITIV sein.
 
 // =============================================================
 
+Nomenklatur:
+------------
+
+2 Klassen stehen in der Vererbungs-Beziehung // ist-ein Beziehung:
+
+== Vater- und Kind-Klasse
+
+== Parent- und Child-Class
+
+== Base- und Derived-Class
+
+== Spezialisierung:   Eine abgeleitete Klasse ist ein Spezialfall der Basisklasse
+
+== Generalisierung:   Eine Basisklasse ist eine Verallgemeinerung (Generalisierung)
+                   der abgeleiteten Klasse
+
+== Klassenhierarchie
+
+--------------------------------------------------------------------
+
+Methoden im Umfeld der Vererbung
+--------------------------------
+
+Virtueller Methodenaufrufmechanismus:
+
+virtual: 
+
+    Es wird die Methode des Objekts aufgerufen, dessen Adresse zur LAUFZEIT des Programms
+    an eine Zeigervariable zugewiesen wird.
+
+    LATE - BINDING
+
+Ohne virtual: 
+
+    Es wird die Methode des Objekts aufgerufen,
+    dessen Datentyp zur ÜBERSETZUNGSZEIT vorliegt.
+
+    EARLY - BINDING
+
+--------------------------------------------------
+
+ZUr Verwendung von 'virtual':
+
+   "Einmal virtual - immer virtual"
+
+
+   ABER:  Mit override kann ich Tippfehler in Methoden vermeiden ... und sehe visuall,
+          ob eine bestimmte Methode eine andere Methode in einer Vaterklasse überschreibt.
+
+--------------------------------------------------
+
+Nomenklatur:
+------------
+
+Überschreiben:  overwrite 
+
+override: ?????  Vorrang vor etw. haben // sich über etw. hinwegsetzen 
+
+override:  Von etwas die Bedeutung verändern 
+
+Anekdote:  Ersten Menschen, der ein C++ Buch von Englisch ins Deutsche übersetzt hat.
+           Überschreiben ....
+
+--------------------------------------------------
+
+Überschreiben im Zusammenhang mit der Vererbung:
+------------------------------------------------
+
+3 Gestaltungsmöglichkeiten:
+---------------------------
+
+A) Eine Methode wird vererbt (von der Vaterklasse).
+
+   Es gibt KEINE Notwendigkeit, diese Methode in der Kindklasse zu überschreiben.
+
+B) Eine Methode (der Vaterklasse) wird (in der Kindklasse) ersetzt.
+
+   Der Quellcode der Methode in der Vaterklasse wird verdeckt.
+
+   >>> !!! Hmmm, wir haben doch das Prinzip der ist-ein Beziehung.
+
+C) Eine Methode  (der Vaterklasse) wird (in der Kindklasse) erweitert:
+
+   Durch Aufruf der Methode der Vaterklasse.
+
+Anmerkung: Ist B) wirklich erwünscht ????????????
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+Beobachtung:
+
+    for (int i = 0; i < 5; ++i)
+    {
+        rects[i]->draw();   // <=
+    }
+
+    Weiß nicht genau, welche draw-Methode aufgerufen wird ...
+
+Viele =========>   Poly
+
+Gestalt =======>   Morphus
+
+Polymorphismus :-)) Vielgestaltigkeit
+
+------------------------------------------------
+
+Konzeption von Klassen:  Schnittstellenkonzept
+----------------------------------------------
+
+Es ist möglich, die Methoden von (vielen) Klassen festzulegen // nicht zu implementieren.
+
+Schnittstellenkonzept:   interface  (Java, C#, ...)
+
+interface UIObject
+{
+   void draw();
+   void eraseBackground();
+   void drawBorder();
+}
+
+Ein interface stellt einen VERTRAG dar.
+
+15 Uhr
