@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BigData.cpp" />
     <ClCompile Include="Dynamic.cpp" />
     <ClCompile Include="Excercise_Fraction.cpp" />
     <ClCompile Include="Excercise_Fraction_Program.cpp" />
@@ -29,8 +30,10 @@
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Ausnahmen.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Vererbung.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BigData.h" />
     <ClInclude Include="Excercise_Fraction.h" />
     <ClInclude Include="Excercise_Time.h" />
     <ClInclude Include="Time.h" />

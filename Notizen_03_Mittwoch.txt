@@ -3,6 +3,7 @@
 // =====================================================================
 
 Notizzettel Mittwoch
+--------------------
 
 Grundlagen C++ / Firmenseminar Vitronic Wiesbaden
 
@@ -24,6 +25,215 @@ https://github.com/pelocpp/cpp_basic_examples/tree/master/Examples/Fraction/Reso
 
 // =====================================================================
 
+Warum kann man den ++ Operator 2 Mal definieren / implementieren?
+
+int n = 1;
+
+...
+
+int m = ++n;  // Pre-Inkrement
+// m = 2, n = 2
+
+oder 
+
+int m = n++;  // Post-Inkrement (Kopie des alten Werts bereitgestellt werden)
+// m = 1, n = 2
 
 
+Call-to-Action:
+
+for (int i = 0; i < 10; ++i )  // <=== ++i  //  // Pre-Inkrement
+
+friend Fraction& operator++ (Fraction&);            // prefix increment
+
+friend const Fraction operator++ (Fraction&, int);  // postfix increment
+
+2. Parameter a) hat keinen Namen b) wird NICHT verwendet, aber:
+
+Auf Grund der Schnittstelle (2 Parameter) handelt es sich um den Postfix increment
+
+// ================================================================
+
+Dynamische Daten und Objekte
+----------------------------
+
+Beobachtungen:
+
+Das Erstellen einer Kopie wird in C++ automatisch bereit gestellt
+  (Kopier - Konstruktor)
+
+-------------------------------------------------------------------
+
+Aussage: 
+
+Neben Konstruktoren gibt es auch EINEN Destruktor.
+
+-------------------------------------------------------------------
+
+Ausführung an einem Beispiel:  // Kopie
+
+:>>>:  ... 800:   wurde freigegeben
+
+:>>>:  ... BF0:   wurde freigegeben
+
+-------------------------------------------------------------------
+
+Wie sieht dieser Themenkreis bei Smart-Pointern aus:
+
+In diesem Fall muss ich den Kopier-Konstruktor NICHT schreiben.
+
+Absolut: Go - for - Smart Pointer:  Nach "14" Tagen sind diese intus.
+
+
+Wie nähere ich mich der Thematik "Pointer" am besten:
+
+A) Klassische Zeiger verstehen (anwenden)
+
+B) Kopieren von Zeigern / Objekten verstehen (anwenden) / Kopier-Semantik
+
+C) Move-Semantik verstehen (anwenden)
+
+D) Smart-Pointer verstehen (anwenden) / keine klassische Zeiger mehr verwenden
+
+
+A) und B): "Maschinenraum von C++" 
+
+-------------------------------------------------------------------
+
+Ausführung an einem Beispiel:  // Kopie
+
+:>>>:  ... 800:   wurde freigegeben
+
+:>>>:  ... BF0:   wurde freigegeben
+
+-------------------------------------------------------------------
+
+Abschluss zu Dynamische Daten und Objekte:
+
+>>>>:   Rule - of - Three   oder "Regel der 3"
+
+        oder:   Big-Three 
+
+        Eine C++ - Klasse muss haben:
+
+        i)   Destruktor
+        ii)  Kopier-Konstruktor   
+        iii) Wertzuweisungs-Operator (operator=)
+
+
+>>>>:   Rule - of - Zero
+
+        Eine C++ - Klasse besitzt einen AUTOMATISCH ERZEUGTEN
+
+        Destruktor, Kopier-Konstruktor und Wertzuweisungs-Operator.
+
+
+
+Wann setzt ich (Anwender) Rule - of - Three ein ?
+
+>: Wenn in der Klasse dynamisch allokierter Speicher (new) zum
+   Einsatz kommt.
+
+Wann setzt ich (Anwender) Rule - of - Zero ein ?
+
+>: Wenn in der Klasse KEIN dynamisch allokierter Speicher zum
+   Einsatz kommt.
+
+   Also in allen anderen Fällen.
+
+
+Rule - of - Zero:
+-----------------
+
+>>> Kann ich bei Smart-Pointern anwenden.
+
+>>> Auch die Klassen der Standard-Bibliothek erlauben Rule - of - Zero
+
+    ( std::vector )
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+Vererbung:
+
+Wozu?  Um Code wieder zu verwenden!
+
+Steckt in vielen Bibliotheken drin.
+
+Ist ein Paradigma der OO: C#, Java, JavaScript, C++, ........
+
+Hinweis: 
+
+Vererbung erfordert das eine oder andere syntaktische Konstrukt.
+
+LEIDER: Der Compiler gibt keine Fehlermeldung aus, wenn die Vererbung
+        falsch / schlecht eingesetzt wird.
+
+
+Vorüberlegung:
+
+== Klasse Rechteck  (Rectangle)
+
+== Klasse FarbigesRechteck  (ColoredRectangle)
+
+>>>:  Das Wort FarbigesRechteck beinhaltet das Wort Rechteck
+
+      Dieses Rechteck kann auch farbiges Rechteck genannt werden.
+
+      Ein blaues Rechteck ist ein farbiges Rechteck
+
+      Ein farbiges Rechteck ist ein Rechteck
+      --------------------------------------
+
+Software-Design:    Beziehungen zwischen Klassen
+
+Beziehungs-Typus:   ist-ein Beziehung  // is - a Relationship
+
+NUR IM FALLE DER "ist-ein Beziehung" darf die Vererbung angewendet werden !!!
+
+
+
+
+
+Kontrollfrage:
+--------------
+
+Klasse Punkt (class Point)
+
+Klasse Linie (class Line)
+
+>>>:  Auf einer Linie liegen viele Punkte
+
+      Eine Linie ist durch zwei Punkte bestimmt
+
+      Eine Linie hat zwei Punkte
+      --------------------------
+
+Software-Design:    Beziehungen zwischen Klassen
+
+Beziehungs-Typus:   hat-ein Beziehung (Plural)  // has - a Relationship
+
+    Bildet die Umsetzung auf Instanz-Variablen ab !!!
+
+class Line
+{
+    private:
+
+        Point m_begin;
+        Point m_end;
+};
+
+
+
+Frage: Kann ich sagen:  Eine Linie ist ein Punkt?  Nein
+
+Frage: Kann ich sagen:  Ein Punkt ist eine Linie?  Nein
+
+      >>>>>: Hier wird Vererbung UNTER KEINEN UMSTÄNDEN eingesetzt !!!
+
+
+Jegliche Anwendung der Vererbung MUSS INTUITIV sein.
+
+// =============================================================
 

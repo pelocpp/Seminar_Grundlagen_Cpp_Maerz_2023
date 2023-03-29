@@ -15,7 +15,7 @@ namespace ExerciseFraction {
     Fraction::Fraction(int num, int denom)
     {
         m_num = num;
-        m_denom = (denom == 0) ? 1 : denom;
+        m_denom = (denom == 0) ? 1 : denom;   // silent error recovery
         checkSigns();
         reduce();
     }
@@ -130,7 +130,7 @@ namespace ExerciseFraction {
 
     bool operator>= (const Fraction& f1, const Fraction& f2)
     {
-        return !(f1 < f2);
+        return ! (f1 < f2);
     }
 
     bool operator> (const Fraction& f1, const Fraction& f2)

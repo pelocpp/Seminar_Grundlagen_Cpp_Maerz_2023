@@ -83,7 +83,7 @@ int main_dynamic_01()
     return 0;
 }
 
-int main()
+int main_dynamic_02()
 {
     mehrereDatenWerdenAngelegt();
 

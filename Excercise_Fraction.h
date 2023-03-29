@@ -18,7 +18,7 @@ namespace ExerciseFraction {
     public:
         // c'tors
         Fraction();
-        Fraction(int, int);
+        Fraction(int num, int denom);
 
         // conversion c'tor
         Fraction(int);
