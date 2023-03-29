@@ -1,0 +1,16 @@
+// =====================================================================
+// Notizzettel.txt
+// =====================================================================
+
+Notizzettel Donnerstag
+----------------------
+
+Grundlagen C++ / Firmenseminar Vitronic Wiesbaden
+
+Call-to-Action:    Fortgeschrittenes Seminar:  8. bis 11. Mai
+
+peter.loos@gmx.de
+
+Peter Loos
+
+// =====================================================================
