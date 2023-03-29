@@ -20,16 +20,24 @@ class Line : public Point
 // ============================================================
 
 // C++ interface
-class UIObject
+class IUIObject
 {
 public:
     virtual void draw() = 0;
     virtual void eraseBackground() = 0;
 };
 
+class IPersistence
+{
+public:
+    virtual void save() = 0;
+    virtual void load() = 0;
+};
+
 // ============================================================
 
-class Rectangle : public UIObject
+// Abstrakte Klasse 
+class Rectangle : public IUIObject, public IPersistence
 {
 private:
     int m_left;
@@ -58,9 +66,10 @@ public:
 
 public:
     // public interface
-    virtual void draw() { std::cout << "draw: Rectangle" << std::endl; }
+    virtual void eraseBackground() { std::cout << "eraseBackground: Rectangle" << std::endl; }
 
-    virtual void eraseBackground() { std::cout << "eraseBackground: Rectangle" << std::endl; };
+    virtual void save() {}
+    virtual void load() {}
 };
 
 class ColoredRectangle : public Rectangle
@@ -117,18 +126,16 @@ public:
 
 void vererbung01()
 {
-    Rectangle r(20, 20, 5, 5);
+    // Rectangle r(20, 20, 5, 5);
     ColoredRectangle cr(10, 10, 20, 30, 99);
 
-    r.draw();
+    // r.draw();
     cr.draw();
 }
 
 void vererbung02()
 {
-    Rectangle* rp;
-
-    Rectangle r(100, 100, 200, 300);
+    Rectangle* rp;  // 4 Bytes
 
     ColoredRectangle cr(10, 10, 20, 30, 99);
 
@@ -141,23 +148,29 @@ void vererbung02()
 
 void vererbung03()
 {
+    // Concrete objects
     TransparentRectangle tr1(10, 10, 20, 30, 99);
     TransparentRectangle tr2(10, 10, 20, 30, 99);
-
-    Rectangle r(100, 100, 200, 300);
 
     ColoredRectangle cr1(10, 10, 20, 30, 99);
     ColoredRectangle cr2(10, 10, 20, 30, 99);
 
     // Array
-    Rectangle* rects[5]{ &tr1, &r, &cr1, &tr2, &cr2 };
+    IUIObject* rects[4] { &tr1, &cr1, &tr2, &cr2 };
 
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 4; ++i)
     {
         rects[i]->draw();   // <====  Polymorphismus
     }
 
+    IPersistence* rects2[4]{ &tr1, &cr1, &tr2, &cr2 };
+
+    for (int i = 0; i < 4; ++i)
+    {
+        rects2[i]->save();   // <====  Polymorphismus
+    }
 }
+
 
 int main()
 {

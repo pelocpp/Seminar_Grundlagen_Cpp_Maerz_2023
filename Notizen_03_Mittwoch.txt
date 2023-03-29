@@ -348,7 +348,7 @@ Polymorphismus :-)) Vielgestaltigkeit
 Konzeption von Klassen:  Schnittstellenkonzept
 ----------------------------------------------
 
-Es ist möglich, die Methoden von (vielen) Klassen festzulegen // nicht zu implementieren.
+Es ist möglich, die Methoden von (vielen) Klassen festzulegen // ohne sie dabei zu implementieren.
 
 Schnittstellenkonzept:   interface  (Java, C#, ...)
 
@@ -357,8 +357,96 @@ interface UIObject
    void draw();
    void eraseBackground();
    void drawBorder();
+
+   int  m_member;  // error
 }
 
 Ein interface stellt einen VERTRAG dar.
 
-15 Uhr
+Bemerkung: Zu einem interface gehören KEINE Daten !!!
+
+Eine Schnittstelle sollte / hat einen "Concern" / hat eine Zuständigkeit.
+
+"Seperation of Concerns"  // Trennung von Zuständigkeiten !!!!
+
+// =====================================================================
+
+Konzeption von Klassen:  Abstrakte Klasse
+-----------------------------------------
+
+Was ist der Unterschied zwischen einer abstrakten Klasse und einer Schnittstelle ?
+
+
+A) Eine abstrakten Klasse ist / kann eine Teilrealisierung der Methoden einer Schnittstelle sein.
+
+B) Eine abstrakte Klasse kann Daten enthalten.
+
+Andere Formulierung:  Eine Abstrakte Klasse ist eine unvollständige Klasse.
+
+Von einer abstrakten Klasse kann ich KEIN Objekt anlegen !!!
+
+// weil Realisierungen einer oder mehrerer Methoden fehlen.
+
+C) Eine Abstrakte Klasse ist eine Hilfsrealisierung für abgeleitete Klassen.
+
+// =====================================================================
+
+Fazit:
+
+Oberste Ebene:     Schnittstellen
+
+Mittlere Ebene:    Abstrakte Klassen (Teile der Schnittstellen realisieren),
+                   sich also von Schnittstellen ableiten (die also Schnittstellen realisieren)
+
+Unterste Ebene:    Konkrete Klassen, die sich von abstrakten Klassen ableiten
+
+// =====================================================================
+
+Übung:
+
+"Wir gehen zur Sparkasse"
+
+== Ein Bankkonto   // class Account
+
+== Ein Bankkonto hat eine Kontonummer
+
+== Giro-Konto: Das kann man überziehen // Dispo Limit // keine Zinsen
+
+== Sparbuch:   Bekommt einmal im Jahr Zinsen gutgeschrieben
+
+== Studentenkonto: Das kann man NICHT überziehen // KEIN Dispo Limit //  keine Zinsen
+
+== Aktivitäten // Methoden:
+
+   Einzahlen   // to deposit
+
+   Abheben     // to withdraw
+
+   Kontostand abfragen   // getBalance
+
+------------------------------------------------------------------
+
+Wir wollen konzeptionell vorgehen:
+
+Frage:  Wie könnte man eine Schnittstelle IAccount definieren ???
+
+Frage:  Wie könnte man eine abstrakte Klasse Account definieren ???
+
+Frage:  Wie könnte man konkrete Klassen Giro-Konto (CurrentAccout), Sparbuch (SavingsAccount),
+        und Studentenkonto (StudentsAccount) realisieren ???
+      
+------------------------------------------------------------------
+
+Nicht verlangt: Ein Bankinstitut -- Container / Verwaltung für viele Konten sein.
+
+------------------------------------------------------------------
+
+https://github.com/pelocpp/cpp_basic_examples/blob/master/Examples/AccountsAndBank/Resources/Readme.md
+
+
+Lösung
+
+https://github.com/pelocpp/cpp_basic_examples/tree/master/Examples/AccountsAndBank
+
+------------------------------------------------------------------
+
