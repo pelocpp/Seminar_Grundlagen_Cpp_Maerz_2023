@@ -75,6 +75,9 @@
     <ClCompile Include="STL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Excercise_STL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">

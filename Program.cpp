@@ -10,10 +10,15 @@ void test_accounts();
 void main_virtual_destructor();
 void main_templates();
 void stl_13();
+void stl_exercise_fibonacci();
+void stl_exercise_teufel();
+void stl_exercise_teufel_academic_01();
+void stl_exercise_teufel_academic_02();
+void stl_exercise_teufel_academic_03();
 
 int main()
 {
-    stl_13();
+    stl_exercise_teufel_academic_01 ();
 
     return 0;
 }
