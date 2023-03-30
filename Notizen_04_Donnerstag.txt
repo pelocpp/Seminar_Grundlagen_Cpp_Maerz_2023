@@ -97,3 +97,114 @@ Genau das, was ich verstehe !!!!!!!!!!!!!!!!!!!!!
 
 // ===================================================
 
+STL:
+
+== Container
+
+      ===> Verwaltet Daten - desselben Typs
+
+== Iterator
+
+      ===> Beschreibt eine Position in einem Container
+
+== Algorithmus
+
+      ===> Suchen, Durchlaufen, Umwandeln, Vorbelegen, Kopieren, ..
+
+== Funktors
+
+      ===> Spezielle Art einer normalen Funktion
+
+Offizielle Doku:
+
+https://en.cppreference.com/w/
+
+// ===================================================
+
+Container:  Sammelt Daten
+
+Array  // Vector
+
+Listen
+
+Dictionary // Map
+
+Queue
+
+Stack
+
+// ===================================================
+
+std::vector:
+
+== Hält intern ein bestimmtes Volumen für die Daten vor.
+
+== Kann man über 'capacity' auslesen
+
+== Kann man auch einstellen
+
+9  13  19   ===> Mal 1.5  // Faktor
+
+// ===================================================
+
+Iterator
+
+===> Beschreibt eine Position in einem Container
+
+"Index wie bei einem Array"
+
+
+Das mit dem Index geht nicht bei anderen Typen von Containern !!!
+
+zB:  Linked List  // C++:  std::forward_list
+
+Hier muss man mit Zeiger-Arithmetik von einem Element zum nächsten 
+schreiten solange, bis man beim gewünschten Element angekommen ist.
+
+Konzept:
+
+Wie kann ich eine Position UNABHÄNGIG von einem Container beschreiben ???
+
+std::vector:        Index (int)
+
+std::forward_list:  Adresse eines Knotens 
+
+std::map:           Über den Schlüssel (Key) kann man zugreifen
+
+
+Antwort:
+
+Typ ist im jeweiligen Container hinterlegt.
+
+==> Welche Methoden / Funktionen / Operatoren hat dieser Typ
+
+A) Ist per Konzept definiert:
+
+   operator ==     - Vergleich von Positionen
+   operator ++     - Gehe zum nächsten Element im Container
+   operator *      - Gib mir das Element aus dem Container
+                     an dieser Stelle (Position)
+
+
+B) Man könnte das in der Realisierung auch nachschauen
+
+   (  das wollen wir nicht tun )
+
+
+
+Wie erhalte ich eine Position eines Containers ????
+
+Ist per Konzept an jedem Container definiert:
+
+I)  Es gibt die Position des ERSTEN Elements:
+
+        Methode begin()
+
+II) Es gibt die Position des LETZTEN Elements:
+
+        Methode end()
+
+    EXAKTER: end() ist die Position NACH dem LETZTEN Element.
+
+
+    13:05  
