@@ -115,6 +115,7 @@ STL:
 
       ===> Spezielle Art einer normalen Funktion
 
+
 Offizielle Doku:
 
 https://en.cppreference.com/w/
@@ -344,5 +345,52 @@ B) Er ruft pro Element eine Funktion auf
 C) Die Funktion berechnet einen bestimmten Wert,
 
    der beim nächsten Aufruf zur Verfügung gestellt wird.
+
+
+// =========================================================
+
+Übungen:   Ziel ================> Möglichst viel mit der STL umsetzen.
+
+
+
+A) Teuflische Folge
+
+Startwert:    7
+
+Nächste Wert berechnet:
+
+I)  Zahl gerade:    ==> Zahl / 2
+II) Zahl ungerade:  ==> Zahl * 3 + 1
+
+Beobachtung:   Für JEDEN Startwert endet dies Folge nach ENDLICH vielen Schritten.
+
+7 => 22  => 11  => 34 => 17 => 52 => 26 => 13 => 40 => 20 => 10 => 5 => 16 => 8 => 4 => 2 => 1 !!! Ende
+
+
+STL:   Startwert: Wird einprogrammiert:
+
+Alternative:  Vektor der Länge 1 -- erstes Element == Startwert
+
+    std::copy // std::copy_if:     Bedingungsfunktion:  Nächstes Element berechnen
+
+    Ziel-Container: Leer sein   // std::back_inserter 
+
+
+B) Fibonacci Zahlen:
+
+Ein Ansatz:
+
+std::generate  
+
+Es ist aber ein Funktor - Objekt notwendig, in dem die zuletzt berechnete Fib.Zahl abgelegt wird:
+
+0 1 ==> 1
+
+Idee:  im Funktor-Objekt // INstanzvariablen !!!!!!!!!!! die Wert geeignet ablegen,
+
+so dass ich mit std::generate   ans Ziel komme
+
+
+
 
 
