@@ -11,6 +11,89 @@ Call-to-Action:    Fortgeschrittenes Seminar:  8. bis 11. Mai
 
 peter.loos@gmx.de
 
-Peter Loos
+// =====================================================================
+
+To Do :
+
+        virtual ~IAccount() {};
+
+final: Verbietet Überschreiben in Kind Klassen
+
+// public interface
+void deposit(double amount) final override;
+
+
+override: Nimmt Bezug zur Vaterklasse - ich will diese Methode überschreiben
+
+final:    Nimmt Bezug zu möglichen Kindklassen - Methode kann nicht weiter überschrieben werden
 
 // =====================================================================
+
+
+Virtueller Basiusklassen Destruktor:
+
+Wenn vor einem Destruktor NICHT virtual steht,
+
+können in einer Hierarchie Aufrufe von DESTRUKTOREN VERLOREN gehen !!!!
+
+// =====================================================================
+
+class Account : private  IAccount
+
+Wozu public:
+
+A) Vererbung ist ein Gedankengut quasi aller OO Sprachen 
+
+B) In C++ hat man hier sehr ausführlich unterstützt: Verschiedene Möglichkeiten
+  
+     des Zugriffs auf die Variablen in der Basisklasse:
+
+        https://www.geeksforgeeks.org/inheritance-in-c/
+
+C) In nahezu allen anderen (Nicht C++) sprachen
+
+   Nur "public" Vererbung ist vorhanden.
+
+   class Account : public  IAccount
+
+// =====================================================================
+
+
+C++:
+
+==>  OO:   Objekt-Orientierte Programmierung
+
+==>  GP:   Generische Programmierung (Templates)
+
+
+C++:  Bjarne Stroustrup  (C mit Klassen / C with Classes)
+
+GP:   Alexander Alexandrowitsch Stepanow
+
+
+Bibliothek: STL   Standard Template Library
+
+"Stilistische Unterschiede sind erkennbar"
+
+// ===================================================
+
+3 Ebenen Modell der Generische Programmierung :
+
+https://github.com/pelocpp/cpp_modern_examples/blob/master/GeneralSnippets/TemplateClassBasics/TemplatesClassBasics.md
+
+Generische Programmierung:
+
+A) Schablonen für Klassen
+
+B) Schablonen für Funktionen
+
+// ===================================================
+
+Hmmm, es gibt komplizierte Ecken von C++:
+
+Was verwende "ich" als Entwickler von C++:
+
+Genau das, was ich verstehe !!!!!!!!!!!!!!!!!!!!!
+
+// ===================================================
+

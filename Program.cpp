@@ -7,10 +7,13 @@ void test_pointer_vs_reference();
 void exercise_time();
 void testIncrementSpecial();
 void test_accounts();
+void main_virtual_destructor();
+void main_templates();
+void stl_01();
 
 int main()
 {
-    test_accounts();
+    stl_01();
 
     return 0;
 }

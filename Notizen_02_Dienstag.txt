@@ -10,8 +10,6 @@ Call-to-Action:    Fortgeschrittenes Seminar:  8. bis 11. Mai
 
 peter.loos@gmx.de
 
-Peter Loos
-
 // =====================================================================
 
 Lösung zur Klasse Time:

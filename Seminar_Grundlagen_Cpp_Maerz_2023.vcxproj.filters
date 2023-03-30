@@ -69,6 +69,12 @@
     <ClCompile Include="Exercise_Accounts\StudentsAccount.cpp">
       <Filter>Source Files\Exercise_Accounts</Filter>
     </ClCompile>
+    <ClCompile Include="Schablonen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">

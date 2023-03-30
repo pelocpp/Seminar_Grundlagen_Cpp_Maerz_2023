@@ -18,16 +18,21 @@ namespace AccountsAndBank {
 
     public:
         // default c'tor / d'tor
-        virtual ~Account() {};
+        virtual ~Account() {
+            std::cout << "~Account" << std::endl;
+        
+        };
 
         Account(int account);
 
         // getter / setter
-        double getAccountNumber() override;
-        double getBalance() override;
+        double getAccountNumber() final override;
+        double getBalance() final override;
 
         // public interface
         void deposit(double amount) final override;
+
+        // virtual bool withdraw(double amount) = 0;
     };
 }
 

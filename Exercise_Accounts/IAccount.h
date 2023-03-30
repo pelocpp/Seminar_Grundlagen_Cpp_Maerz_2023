@@ -13,7 +13,7 @@ namespace AccountsAndBank {
     public:
         virtual ~IAccount() {};
 
-        // getter/setter
+        // getter
         virtual double getAccountNumber() = 0;
         virtual double getBalance() = 0;
 

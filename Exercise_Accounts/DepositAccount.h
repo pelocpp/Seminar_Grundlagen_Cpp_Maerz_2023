@@ -19,7 +19,9 @@ namespace AccountsAndBank {
 
     public:
         // c'tors
-        virtual ~DepositAccount() {};
+        virtual ~DepositAccount() {
+            std::cout << "~Account" << std::endl;
+        };
 
         DepositAccount(int account);
         DepositAccount(int account, double interestRate);

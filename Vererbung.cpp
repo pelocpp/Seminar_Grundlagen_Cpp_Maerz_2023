@@ -179,3 +179,46 @@ int main_vererbung ()
 }
 
 // ============================================================
+
+
+
+class Base
+{
+public:
+    virtual ~Base()                                                         // <== add keyword 'virtual' in front of this line !!!
+    {
+        // do some important cleanup in class Base
+        std::cout << "d'tor Base" << std::endl;
+    }
+
+    // some virtual methods
+    virtual void doSomething() {
+        std::cout << "doSomething" << std::endl;
+    }
+};
+
+class Derived : public Base
+{
+public:
+    ~Derived()
+    {
+        // do some important cleanup in class Derived
+        std::cout << "d'tor Derived" << std::endl;
+    }
+};
+
+void main_virtual_destructor()
+{
+    Base* b = new Derived();
+
+    // use b
+    b->doSomething();
+
+    delete b; // here's the problem!
+}
+
+
+
+// ============================================================
+
+
