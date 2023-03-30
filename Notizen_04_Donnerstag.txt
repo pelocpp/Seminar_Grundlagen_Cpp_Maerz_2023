@@ -147,7 +147,8 @@ std::vector:
 
 // ===================================================
 
-Iterator
+Iterator:
+=========
 
 ===> Beschreibt eine Position in einem Container
 
@@ -207,4 +208,141 @@ II) Es gibt die Position des LETZTEN Elements:
     EXAKTER: end() ist die Position NACH dem LETZTEN Element.
 
 
-    13:05  
+Anmerkung:
+
+Ein Iterator in C++ ist durch eine Klasse repräsentiert.
+
+Container:   std::vector<int>
+
+Iterator:    std::vector<int>::iterator
+
+
+
+// ===================================================
+
+== Algorithmus
+
+      ===> Suchen, Durchlaufen, Umwandeln, Vorbelegen, Kopieren, ..
+
+
+Beobachtung:
+------------
+
+>>>>>> Algorithmus
+
+  |
+  V
+
+>>>>>> Iteratoren
+
+  |
+  V
+
+>>>>>> Container
+
+
+// ===========================================================
+
+    // fill
+    std::fill(
+        v.begin(),
+        v.end(),
+        1
+    );
+
+    // versus
+
+    for (int i = 0; i < v.size(); ++i) {
+        v[i] = 1;
+    }
+
+
+    A) Was ist, wenn der Wert (1) nicht konstant ist, also eine Berechnung erfordert ???
+
+       ===> Dann sollten wir das anders machen :) ====>  std::generate
+
+    B) Bei kontantem Wert:   Go for std::fill !!!!!!!!!!!!!!!!!!   WHY ????
+
+STL:  is very clever :)
+
+Ein Vektor entspricht im Speicher einem dicht liegenden Bereich 
+// konsektiv aufeinander folgenden Werten
+
+CPU: Spezialbefehle für das Vorbelegen von Speicher
+
+C:   std::memset   ===>  Intel  CPU:    Repeat Operation Prefix  REP
+
+x86 Instruction Set Reference
+REP/REPE/REPZ/REPNE/REPNZ
+Repeat String Operation Prefix
+
+Bemerkung:
+
+// >>>>>>>>>>>>>>>>>>>
+
+std::vector<int> v;
+
+v.resize(10); 
+
+// fill
+std::fill(
+    v.begin(),
+    v.end(),
+    1
+);
+
+std::generate(
+    v.begin(),
+    v.end(),
+    fueller
+);
+
+<<<<<<<<<<<<<<<<<<<< 
+
+Wie könnte man die Stilistik der STL Programmierung bezeichnen ???
+
+Programming in Building Blocks: 
+
+// =========================================================
+
+Wir betrachten den Operator  operator ():
+
+Anzahl der Parameter: beliebig   (  NICHT: operator+ :  2 Operanden )
+
+Rückgabetyp: Kann ebenfalls beliebig gewählt werden.
+
+Nomenklatur:
+
+Klassen, die den operator () implementieren, nennt man:
+
+== Aufrufbares Objekt
+
+== Funktionsobjekt
+
+== Function Objekt
+
+== Funktor
+
+Letzer Hinweis:
+
+Wozu dieser Weg mit dem operator() -- vor dem Hintergrund, solche Objekte
+und STL-Algorithmen zusammen zu bringen:
+
+======>> Ich hätte das auch mit einer Methode hinbekommen: 
+
+   Welcher Name für diese Methode  ??????????????
+
+
+// =========================================================
+
+std::accumulate    // Anhäufen
+
+A) Einen Container durchlaufen // traversieren 
+
+B) Er ruft pro Element eine Funktion auf
+
+C) Die Funktion berechnet einen bestimmten Wert,
+
+   der beim nächsten Aufruf zur Verfügung gestellt wird.
+
+

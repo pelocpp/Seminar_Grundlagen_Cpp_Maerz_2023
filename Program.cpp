@@ -9,11 +9,11 @@ void testIncrementSpecial();
 void test_accounts();
 void main_virtual_destructor();
 void main_templates();
-void stl_03();
+void stl_13();
 
 int main()
 {
-    stl_03();
+    stl_13();
 
     return 0;
 }
