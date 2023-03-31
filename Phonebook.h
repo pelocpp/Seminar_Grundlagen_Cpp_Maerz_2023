@@ -22,7 +22,7 @@ public:
     // public interface
     bool insert (const std::string& first, const std::string& last, long number) override;
     
-    bool search(const std::string& first, const std::string& last, long& number) override;
+    bool search(const std::string& first, const std::string& last, long& number) const override;
     
     /* [[ nodiscard ]] */ bool remove(const std::string& first, const std::string& last) override;
 

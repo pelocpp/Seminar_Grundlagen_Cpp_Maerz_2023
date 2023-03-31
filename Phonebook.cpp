@@ -28,11 +28,11 @@ bool Phonebook::insert(const std::string& first, const std::string& last, long n
     return true;
 }
 
-bool Phonebook::search(const std::string& first, const std::string& last, long& number)
+bool Phonebook::search(const std::string& first, const std::string& last, long& number) const
 {
     std::string key = namesToKey(first, last);
 
-    std::unordered_map<std::string, long>::iterator pos = m_map.find(key);
+    std::unordered_map<std::string, long>::const_iterator pos = m_map.find(key);
 
     if (pos == m_map.end()) {
 
