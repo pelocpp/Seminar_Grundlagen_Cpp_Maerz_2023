@@ -35,7 +35,6 @@ public:
 void stl_exercise_fibonacci()
 {
     std::vector<int> numbers(20);
-    // numbers.resize(20);
 
     Fibonacci fibo;
 
@@ -52,9 +51,6 @@ void stl_exercise_fibonacci()
     );
 }
 
-
-
-
 void printToConsole(int value) {
     std::cout << ">: " << value << std::endl;
 }
@@ -63,13 +59,13 @@ void stl_exercise_teufel()
 {
     std::vector<int> teufelFolge;
 
-    int start = 23;
+    int start = 7;
 
     teufelFolge.push_back(start);
 
-    // Greedy - Berechnung
     while (start != 1)
     {
+        // greedy calculation
         start = (start % 2 == 0) ? (start / 2) : (start * 3 + 1);
         teufelFolge.push_back(start);
     }
@@ -96,11 +92,12 @@ public:
 private:
     int m_start;
     int m_current;
-    int m_last;     // Könnte die Berechnung des ersten / letzten Wertes vereinfachen ???
+    int m_last;
 
 public:
     // c'tors
-    CollatzIterator(int start) : m_start(start), m_current(start)
+    CollatzIterator(int start) 
+        : m_start(start), m_current(start), m_last(start)
     {}
 
     // operators
@@ -126,7 +123,7 @@ public:
 };
 
 
-class CollatzSequence    //  Klasse TeuflischeFolge
+class CollatzSequence
 {
 private:
     int m_start;
@@ -141,14 +138,10 @@ public:
     CollatzIterator end()   const { return CollatzIterator (1); }
 };
 
-
-
-
-
 // using std::for_each
 void stl_exercise_teufel_academic_01()
 {
-    CollatzSequence seq(7);
+    CollatzSequence seq(4);
 
     // Lazy - Berechnung !!!
     std::for_each(

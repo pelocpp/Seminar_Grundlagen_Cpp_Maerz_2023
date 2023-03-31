@@ -303,5 +303,50 @@ std::unordered_map<std::string, long>
 C++: Woraus besteht ein Map - Objekt:  Aus Paaren  -- std::pair
 
 
-13::10 geht es weiter :)
+// ==========================================================
+
+Datentyp: int    -  negative und positive Zahlen
+
+Modern:          -  Vorzeichenlos, wenn es negative Zahlen nicht gibt
+
+Nur positiven Zahlen:  size_t
+
+// ==========================================================
+
+
+std::forward_list
+
+std::transform
+
+Transformieren eines ERSTEN Containers in einen ZWEITEN Container
+
+
+VORSICHT:
+
+std::transform greift auf den ZWEITEN Container mit operator[] // Index-Operator zu !!!
+ 
+
+// ==========================================================
+
+Einfach verkettete Liste:
+
+Gegenstück zu einem Feld:
+
+std::string namenMeinesTelefonbuchs [100];  
+
+Lösungen, wenn ich die Anzahl (100) nicht weiß :
+
+a) std::vector
+
+b) Einfach verkettete Liste:
+
+======================================================
+
+Wozu ist 'const' gut ???????????????????????
+
+Je mehr 'const' verwendet wird,
+
+desto besser kann der Compiler optimieren !
+
+
 
