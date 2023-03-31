@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Exercise_Accounts">
       <UniqueIdentifier>{52f85829-8b7c-4388-a58e-3b86d2c3b09e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Phonebook">
+      <UniqueIdentifier>{4be33006-e5a7-4689-a73b-dbf71e0445af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Time.cpp">
@@ -78,6 +81,12 @@
     <ClCompile Include="Excercise_STL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Program_Phonebook.cpp">
+      <Filter>Phonebook</Filter>
+    </ClCompile>
+    <ClCompile Include="Phonebook.cpp">
+      <Filter>Phonebook</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
@@ -106,6 +115,12 @@
     </ClInclude>
     <ClInclude Include="Exercise_Accounts\StudentsAccount.h">
       <Filter>Source Files\Exercise_Accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="IPhonebook.h">
+      <Filter>Phonebook</Filter>
+    </ClInclude>
+    <ClInclude Include="Phonebook.h">
+      <Filter>Phonebook</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

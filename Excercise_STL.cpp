@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <numeric>
 
+// Funktor
 class Fibonacci
 {
 private:
@@ -34,6 +35,7 @@ public:
 void stl_exercise_fibonacci()
 {
     std::vector<int> numbers(20);
+    // numbers.resize(20);
 
     Fibonacci fibo;
 
@@ -50,6 +52,9 @@ void stl_exercise_fibonacci()
     );
 }
 
+
+
+
 void printToConsole(int value) {
     std::cout << ">: " << value << std::endl;
 }
@@ -58,13 +63,14 @@ void stl_exercise_teufel()
 {
     std::vector<int> teufelFolge;
 
-    int start = 7;
+    int start = 23;
 
     teufelFolge.push_back(start);
 
+    // Greedy - Berechnung
     while (start != 1)
     {
-        start = (start % 2 == 0) ? start / 2 : start * 3 + 1;
+        start = (start % 2 == 0) ? (start / 2) : (start * 3 + 1);
         teufelFolge.push_back(start);
     }
 
@@ -80,10 +86,17 @@ void stl_exercise_teufel()
 
 class CollatzIterator
 {
+public:
+    using iterator_category = std::forward_iterator_tag;
+    using value_type = int;
+    using difference_type = int;
+    using pointer = int*;
+    using reference = int&;
+
 private:
     int m_start;
     int m_current;
-    int m_last;
+    int m_last;     // Könnte die Berechnung des ersten / letzten Wertes vereinfachen ???
 
 public:
     // c'tors
@@ -91,7 +104,9 @@ public:
     {}
 
     // operators
-    int operator*() const { return m_current; }
+    int operator*() const {
+        return m_current; 
+    }
 
     CollatzIterator& operator++()
     {
@@ -110,7 +125,8 @@ public:
     }
 };
 
-class CollatzSequence
+
+class CollatzSequence    //  Klasse TeuflischeFolge
 {
 private:
     int m_start;
@@ -120,15 +136,21 @@ public:
     CollatzSequence(int start) : m_start(start) {}
 
     // iterator support
+    // Berechnung im Iterator-Objekt: LAZY
     CollatzIterator begin() const { return CollatzIterator (m_start); }
     CollatzIterator end()   const { return CollatzIterator (1); }
 };
+
+
+
+
 
 // using std::for_each
 void stl_exercise_teufel_academic_01()
 {
     CollatzSequence seq(7);
 
+    // Lazy - Berechnung !!!
     std::for_each(
         seq.begin(),
         seq.end(),
@@ -137,39 +159,45 @@ void stl_exercise_teufel_academic_01()
     std::cout << std::endl;
 }
 
-// public:
-    //using iterator_category = std::forward_iterator_tag;
-    //using value_type = int;
-    //using difference_type = int;
-    //using pointer = int*;
-    //using reference = int&;
 
 // using std::copy
 void stl_exercise_teufel_academic_02()
 {
-    //CollatzSequence seq(7);
+    CollatzSequence seq(7);
 
-    //std::vector<int> numbers;
+    std::vector<int> numbers;   // leer
 
-    //std::copy(
-    //    std::begin(seq), 
-    //    std::end(seq), 
-    //    std::back_inserter(numbers)
-    //);
+    // Greedy
+    std::copy(
+        //std::begin(seq), 
+        //std::end(seq), 
+        seq.begin(),
+        seq.end(),
+        std::back_inserter(numbers)    // [] -> push_back
+    );
 
     //std::for_each(
-    //    seq.begin(),
-    //    seq.end(),
+    //    numbers.begin(),
+    //    numbers.end(),
     //    printToConsole
     //);
 
-    //std::cout << std::endl;
+    // ODER "for_each" / Range-Based for-Loop
+
+    for (int value : numbers) {
+        std::cout << ">: " << value << std::endl;
+    }
+
+    std::cout << std::endl;
 }
 
 // using range-based for-loop
 void stl_exercise_teufel_academic_03()
 {
     CollatzSequence seq(7);
+
+    // Range-Based for-loop auch für User-Defined Container:
+    //     Standard-Operatoren-Konzept
 
     for (int number : seq) {
         std::cout << number << " ";

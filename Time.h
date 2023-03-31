@@ -17,6 +17,8 @@ public:
     Time(int h, int m, int s);   // Weiterer  Konstruktor: Mit Parameter 
               // Benutzer-definierte Konstruktor (user-defined)
 
+    // Überladen: Eine Methode kann mehrere Male vorhanden sein  / NICHT: Überschreiben (override)
+
 public:
     // getter/setter
     // int getHour() const;

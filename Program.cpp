@@ -15,10 +15,11 @@ void stl_exercise_teufel();
 void stl_exercise_teufel_academic_01();
 void stl_exercise_teufel_academic_02();
 void stl_exercise_teufel_academic_03();
+void main_phonebook();
 
 int main()
 {
-    stl_exercise_teufel_academic_01 ();
+    main_phonebook();
 
     return 0;
 }

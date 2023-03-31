@@ -33,8 +33,10 @@
     <ClCompile Include="Exercise_Accounts\StudentsAccount.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="Parameter.cpp" />
+    <ClCompile Include="Phonebook.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Ausnahmen.cpp" />
+    <ClCompile Include="Program_Phonebook.cpp" />
     <ClCompile Include="Schablonen.cpp" />
     <ClCompile Include="STL.cpp" />
     <ClCompile Include="Time.cpp" />
@@ -49,6 +51,8 @@
     <ClInclude Include="Exercise_Accounts\DepositAccount.h" />
     <ClInclude Include="Exercise_Accounts\IAccount.h" />
     <ClInclude Include="Exercise_Accounts\StudentsAccount.h" />
+    <ClInclude Include="IPhonebook.h" />
+    <ClInclude Include="Phonebook.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

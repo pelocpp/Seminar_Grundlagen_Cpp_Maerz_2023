@@ -1,0 +1,307 @@
+// =====================================================================
+// Notizzettel.txt
+// =====================================================================
+
+Notizzettel Freitag
+----------------------
+
+Grundlagen C++ / Firmenseminar Vitronic Wiesbaden
+
+Call-to-Action:    Fortgeschrittenes Seminar:  8. bis 11. Mai
+
+peter.loos@gmx.de
+
+// =====================================================================
+
+Bestimmte Probleme:
+
+== Zahlenfolgen
+
+== Es ist von Vorneherein das Ergebnis / die Länge eines Ergebnis - Containers
+   NICHT bekannt.
+
+== std::copy , std::accumulate alle scheiden aus: 
+
+    ===> Operieren auf einem VORHANDENEN Container
+
+== Fibonacci:
+
+   Die ersten 20 Fibonacci - Zahlen berechnen:
+
+      Leerer Container (0 ...)
+
+
+== Teufel:
+
+   Da tue ich mir mit einer Vorab-Länge schwer
+
+
+// ===================================================
+ 
+           bedingung      ? azsdruck1   : ausdruck2      ;
+ start = (start % 2 == 0) ? (start / 2) : (start * 3 + 1);
+
+
+>>> Brian Kernighan  / Dennis Ritchie
+
+if (start % 2 == 0)  {
+
+   start = start / 2 ;
+}
+else {
+
+   start = start * 3 + 1;
+}
+
+Operator:  ?=
+
+
+                 true / false
+Syntax:    var = bedingung    ?  ausdruck1 : ausdruck2 ;
+
+
+
+// ===================================================
+ 
+
+== Zahlenfolgen
+
+== Es ist von Vorneherein das Ergebnis / die Länge eines Ergebnis - Containers
+   NICHT bekannt.
+
+== std::copy , std::accumulate alle scheiden aus: 
+
+    ===> Operieren auf einem VORHANDENEN Container
+
+
+
+
+
+Beobachtungen:
+
+== Ad-Hoc Lösung  (kein negativer Zungenschlag)
+
+   Oder:
+
+== Eine in C++/STL integrierte Lösung:  ===> Alle STL-Algorithmen zur Verfügung
+
+---------------------------------------------------------------------------
+
+== Klasse TeuflischeFolge
+
+== Viele Werte
+
+== Charakter eines Containers
+
+== Durchlaufen  / Traversieren / ===> Iterator // Iteratoren-Konzept
+
+== Konzept:     begin(), end()   ===> Position // Iteratoren-Objekt
+
+    begin():   "Startwert"   // '7'
+    end():     "Endwert"     // '1'
+
+== Überlegung: Iteratoren-Objekt ist vom Typ 'int'
+
+      Falsch:  
+
+         operator ==     - Vergleich von Positionen
+         operator ++     - Gehe zum nächsten Element im Container  // 
+                               Berechne das nächste Element der Zahlenfolge   // LAZY
+         operator *      - Gib mir das Element aus dem Container
+                           an dieser Stelle (Position)
+
+== Überlegung: Iteratoren-Objekt muss eine Klasse sein
+                ( die vermutlich einen 'int' Wert enthält / kapselt / '7' )
+
+
+
+
+Beobachtung:
+
+== Klasse TeuflischeFolge kennt nur den Startwert
+
+== Hmmm, alle anderen Werte müssen erst berechnet werden.
+
+Vielen Werten:  2 Herangehensweise:
+
+        a) Greedy-Evaluation - Vorab: ALLE
+        b) Lazy-Evaluation   - Nur on DEMAND
+
+
+
+== FAZIT:
+
+    Eine Folge sollte / könnte man in C++ mit dem Iteratoren-Konzept realisieren.
+
+---------------------------------------------------------------------------
+
+Noch eine Integration in C++ Bordmittel:
+
+C++ 11 aufwärts ...
+
+Range-Based for-Loop:
+
+Einfacheres std::for_each
+
+== Anlehnung an viele, anderen OO Sprachen.
+
+== Persönliche Beobachtung:
+
+   Die 3-Teilung ist verloren gegangen.
+
+Beobachtung:
+------------
+
+>>>>>> Algorithmus
+  |
+  V
+>>>>>> Iteratoren
+  |
+  V
+>>>>>> Container
+
+
+
+// =======================================================
+
+STL:    Dictionary  (Python)
+
+== Datenstruktur  // Container
+
+   Dictionary // Hash Tabelle
+
+== Ungleich einem Vektor:
+      Lineare Datenstruktur:
+      Index :   0, 1, 2, ...
+
+== Schlüssel / Wert
+   Key       / Value
+
+== Beispiel: Wörterbuch: "Guten Morgen" ==> "Good Morning"
+
+   Key:   "Guten Morgen"
+   Value: "Good Morning"
+
+== Beispiel: Telefonbuch: "Hubert Müller" ==> 453425435
+
+   Key:   "Hubert Müller"
+   Value:  453425435
+
+== Realisierung ???
+
+   -- Siehe
+
+   https://de.wikipedia.org/wiki/Hashtabelle
+
+   -- Durchaus als Array von Strukturen
+
+   -- Welcher Index zu einem Key: 
+
+          Spezialfunktion: Abbildung: Key ==> Index 
+
+          Hash Function
+
+          Problem: 2 verschiedene Keys führen zum selben Index ???
+
+          Hash Kollision
+
+          Kann man mit einer Liste lösen
+
+-- C++    std::unordered_map
+
+          Entspricht einer Hash Tabelle
+
+
+-- C++    std::map:
+
+        Ist ein SORTIERTES Dictionary:
+
+        Binary Search Tree
+
+        https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
+
+----------------------------------------------------------
+
+Kriterium der Anwendung:
+
+Telefonbuch:
+
+"Anton Huber" ===> Tel.Nummer  ???  
+
+Realisierung Telefonbuch als Vektor // Hash-Tabelle ???
+
+Anmerkung:
+
+Vektor --> "Sepp Huber" ist an der 99. Stelle eingetragen.
+
+----------------------------------------------------------
+
+Überblick:
+
+C++  // Python:
+
+Arrays / std::vector
+
+Dictionary / std::unordered_map
+
+Array:
+
+Neutral:   Ein neues Element ablegen:
+
+               Wenn (intern) schon Speicher vorhanden ist: schnell
+               Wenn nicht: langsam  ( Capacity )
+
+Vorteil:   Zugriff auf n.-tes Element SCHNELL - wenn ich 'n' kenne 
+
+           ( durchlaufen: 0, 1, 2, 3)
+
+Nachteil:  Suche nach einem Eintrag (Vergleich)
+
+----------------------
+
+Dictionary:   Ein neues Element ablegen:
+
+               Mittelschnell: Es muss der Index in der Hash-Tabelle berechnet werden
+                (Kollisionen aufgelöst)
+
+Vorteil:   Zugriff auf ein Element: Über den Schlüssel: Schnell
+
+           Suche nach einem Eintrag: Schnell - Kein Vergleich (Ausnahme: Kollisionen)
+
+----------------------
+
+Ditionary:  Key / Value // Schlüssel / Wert
+
+Telefonbuch:
+
+"Anton Huber" ===> Tel.Nummer  ???  
+
+Konzept:  
+
+-- Eintrag erstellen
+-- Eintrag suchen
+-- Eintrag entfernen
+-- Alle Einträge ausgeben
+
+==> Konzept: Schnittstelle festlegen
+
+Festlegung:
+
+Der Schlüssel einer Person wird gebildet aus:  Vorname + '_' + Nachname // + : Aneinanderhängen
+
+"Anton"  "Huber"    ===> "Anton_Huber" 
+
+----------------------
+
+std::map
+
+std::unordered_map
+
+std::unordered_map<std::string, long>
+
+
+C++: Woraus besteht ein Map - Objekt:  Aus Paaren  -- std::pair
+
+
+13::10 geht es weiter :)
+
